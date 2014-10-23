@@ -1,0 +1,72 @@
+/* ######### CSS for top level tabs ######### */
+
+.tabsmenuclass ul{
+overflow: hidden;
+width: auto;
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.tabsmenuclass li{
+float: left;
+}
+
+.tabsmenuclass a{
+display: block;
+padding:0px;
+background: url(../../images/menubg.png) repeat-x top left;
+color:#366490;
+margin-right:3px;
+line-height:22px;
+padding:3px 12px;
+text-decoration: none;
+font: bold 13px Arial;
+border-right: 1px solid #b9c5cb;
+border-left: 1px solid #d2d7d9
+}
+
+.tabsmenuclass a:hover, .tabsmenuclass a.selected{
+background: url(../../images/menubg_ov.png) repeat-x top left;
+color: white;
+text-decoration:none;
+}
+
+/* ######### CSS for sub menu container below ######### */
+
+.tabsmenucontentclass{
+clear: left;
+background: none;
+width: 100%;
+height: 27px;
+padding: 0px;
+border:none;
+}
+
+.tabsmenucontentclass ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.tabsmenucontentclass li{
+float: left;
+margin-right: 2em;
+margin-top: 1.6em;
+height: 21px;
+}
+.tabsmenucontentclass li a{
+	color:#366490;
+	background:none;
+}
+.tabsmenucontentclass li a:hover{
+	color:#f49d15;
+	background:none;
+	text-decoration:none;
+}
+.tabsmenucontentclass li:hover{
+	background: url(../../images/choicebg.png) no-repeat bottom center;
+}
+.tabsmenucontentclass li.select{
+	background: url(../../images/choicebg.png) no-repeat bottom center;
+}

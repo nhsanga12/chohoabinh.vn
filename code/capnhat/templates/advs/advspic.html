@@ -1,0 +1,31 @@
+<form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<span id="red"><em><?=$msg?></em></span>
+	</div><br/>
+	<div id="rs_line">
+		Hình ảnh này được sử dụng ở slide trên phần header của website. Tên của hình ảnh là <b>1.jpg, 2.jpg, 3.jpg,...,19.jpg,20.jpg</b>
+	</div><br/>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Chọn file hình :
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="images" size="35" />
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hình đã được upload :
+		</div>
+		<div id="rs_line_r">
+			<img src="../slide/<?=$file?>" border="0" />
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<br />
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+		</div>
+	</div>
+</form>

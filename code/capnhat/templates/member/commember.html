@@ -1,0 +1,503 @@
+<? if ($id['option'] == 'main') {?>		
+		<div id="rs_line_h"><form action="" name="frm_srh" onsubmit="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main;limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value;return false;">
+		<div id="rs_line_h_l">
+		<input type="text" name="search" size="30" value="" />
+		<select name="limit_on_page">
+			<option value="">Số thành viên mỗi trang </option>
+			<option value="10" <? if ($config['limit_on_page'] == 10) echo 'selected'?>>10 member/trang</option>
+			<option value="50" <? if ($config['limit_on_page'] == 50) echo 'selected'?>>50 member/trang</option>
+			<option value="100" <? if ($config['limit_on_page'] == 100) echo 'selected'?>>100 member/trang</option>
+		</select>
+		<input type="button" name="submit" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main;limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value" value="Tìm member" />
+		</div>
+		<div id="rs_line_h_r">
+		<input type="button" name="add_new" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:add'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>'" value="Thêm member"  />
+		<input type="button" name="delete" value="xóa member" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:delete'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>');" title="Xóa những mẫu tin đã được chọn"  />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+	</form></div>
+	<div style=" font-style:italic;">Có tất cả <strong><?=$pages['rs']?></strong> thành viên được tìm thấy trong <strong><?=$pages['page']?></strong> trang (đang xem trang <strong><?=$pages['current']?></strong>)<br /><br /></div>	
+	<!-- Header -->
+	<form name="frm">
+	<div id="rs_line">
+		<div id="rs_header" style="width:6%">ID</div>
+		<div id="rs_header" style="width:30%">Tên thành viên</div>
+		<div id="rs_header" style="width:20%">Vị trí</div>
+		<div id="rs_header" style="width:18%">Phòng/ban</div>
+		<div id="rs_header" style="width:22%; text-align:center">Email</div>
+		<div id="rs_header" style="width:3%; text-align:center;"><input type="checkbox" name="idall" id="idall" value="" title="Click để chọn tất cả" onclick="chkall();" /></div>
+	</div>
+	<!-- End Header -->
+	<!-- Detail -->
+	<? for ($i=0; $i < count($rs_list); $i++) { ?>
+	<div id="rs_line">
+		<div id="rs_detail" style="width:6%; text-align:"><?=$rs_list[$i]['id']?>.</div>
+		<div id="rs_detail" style="width:30%"><a href="<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:edit;item:'.$rs_list[$i]['id']?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>"><?=$rs_list[$i]['firstname']?> <?=$rs_list[$i]['lastname']?><? if($rs_list[$i]['firstname'] == "") echo '#'.$rs_list[$i]['id'];?></a></div>
+		<div id="rs_detail" style="width:20%"><?=$rs_list[$i]['title']?></div>
+		<div id="rs_detail" style="width:18%"><?=$rs_list[$i]['room']?></div>
+		<div id="rs_detail" style="width:22%"><?=$rs_list[$i]['email']?></div>
+		<div id="rs_detail" style="width:3%; text-align:center;"><input type="checkbox" name="iddetail" value="<?=$rs_list[$i]['id']?>" title="đánh dấu chọn thành viên này" /></div>
+	</div>
+	<? }?>
+	<!-- End Detail -->
+	</form>
+	<div id="rs_line" style="text-align:right">
+	<p><form name="gfrm" onsubmit="return false;">
+		Gõ vào <input type="text" name="goinput" value="<?=$pages['current']?>" size="1" />
+		hoặc chọn
+		<select name="gotopgae" onchange="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main;limit_on_page:'.$config['limit_on_page'].';page:'?>'+this.value">
+			<? for ($i = 1; $i <= $pages['page']; $i++) { ?>
+			 <option value="<?=$i?>" <? if ($i == $pages['current']) echo 'selected';?>><?=$i?></option>
+			<? }?>
+		</select>
+		trang
+		<input type="button" name="button" onclick="gotopage(document.gfrm.goinput.value,'<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main;limit_on_page:'.$config['limit_on_page'].';page:'?>');" value="Di chuyển đến" /> &nbsp;
+	</form></p>
+	</div>	
+<? }?>
+<? if ($id['option'] == 'add') {?>
+	<p>
+	<h5>Thêm thành viên: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div>
+	<form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh xưng :
+		</div>
+		<div id="rs_line_r">
+			<input type="radio" name="gender" value="1" />Mr &nbsp; <input type="radio" name="gender" value="0" />Ms
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Họ và tên đệm :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="firstname" value="" size="25" />
+			&nbsp;&nbsp;Tên <input type="text" name="lastname" value="" size="10" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Chức vụ :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="title" value="" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+	<div id="rs_line_l">
+		Phòng ban :
+	</div>
+	<div id="rs_line_r">
+		<select name="room" style=" width: 175px; "/>
+			<option value="Maketing" <? if ($detail[0]['room'] != 'Maketing') echo ""; else echo "selected";?>>Phòng Maketing</option>
+			<option value="Kỹ thuật" <? if ($detail[0]['room'] != 'Kỹ thuật') echo ""; else echo "selected";?>>Phòng Kỹ thuật</option>
+			<option value="IT" <? if ($detail[0]['room'] != 'IT') echo ""; else echo "selected";?>>Phòng IT</option>
+			<option value="Kế toán" <? if ($detail[0]['room'] != 'Kế toán') echo ""; else echo "selected";?>>Phòng Kế toán</option>
+		</select>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ngày gia nhập :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="adday" value="" size="6" />&nbsp;&nbsp;Tháng:
+			<input type="text" name="admonth" value="" size="6" />
+			&nbsp;&nbsp;Năm:
+			<input type="text" name="adyear" value="" size="7" />
+		</div>
+	</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Email :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="email" value="" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Điện thoại :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="telephone" value="" size="12" />
+			&nbsp;&nbsp;Di động:
+			<input type="text" name="handphone" value="" size="18" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Mật khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="password" name="password" value="" size="37" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nhập lại mật khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="password" name="repassword" value=""  size="37"  />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Địa chỉ :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="address" value="" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">&nbsp;
+		</div>
+		<div id="rs_line_r">
+			<select name="district" style=" width: 135px; "/>
+            	<option value="q1">Quận 1</option>
+				<option value="q2">Quận 2</option>
+				<option value="q3">Quận 3</option>
+				<option value="q4">Quận 4</option>
+				<option value="q5">Quận 5</option>
+				<option value="q6">Quận 6</option>
+				<option value="q7">Quận 7</option>
+				<option value="q8">Quận 8</option>
+				<option value="q9">Quận 9</option>
+				<option value="q10">Quận 10</option>
+				<option value="q11">Quận 11</option>
+				<option value="q12">Quận 12</option>
+				<option value="binhthanh">Quận Bình Thạnh</option>
+				<option value="binhtan">Quận Bình Tân</option>
+				<option value="tanbinh">Quận Tân Bình</option>
+				<option value="tanphu">Quận Tân Phú</option>
+				<option value="thuduc">Quận Thủ Đức</option>
+            </select>
+			<select name="city" style=" width: 175px; "/>
+				<option value="hcm">TP. Hồ Chí Minh</option>
+				<option value="binhduong">Bình Dương</option>
+				<option value="dongnai">Đồng Nai</option>
+				<option value="longan">Long An</option>
+            </select>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hộ khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="thuongtru" value="" size="17" />
+			<select name="tinhthanh" style=" width: 175px; "/>
+				<option value="hcm">TP. Hồ Chí Minh</option>
+				<option value="binhduong">Bình Dương</option>
+				<option value="dongnai">Đồng Nai</option>
+				<option value="longan">Long An</option>
+				<option value="binhthuan">Bình Thuận</option>
+            </select>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ngày sinh :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="bday" value="" size="6" />&nbsp;&nbsp;Tháng:
+			<input type="text" name="bmonth" value="" size="6" />
+			&nbsp;&nbsp;Năm:
+			<input type="text" name="byear" value="" size="7" />
+		</div>
+	</div>
+	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Số CMND:
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="cmnd" value="" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tình trạng :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="status" value="" size="22" />
+			&nbsp;&nbsp;Mã group:
+			<input type="text" name="membergroup" value="1" size="6" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ảnh cá nhân:
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="picture" size="37" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Thông tin khác :
+		</div>
+		<div id="rs_line_r">
+			<textarea name="detail" rows="5" style=" width:307px;"></textarea>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Sở thích :
+		</div>
+		<div id="rs_line_r">
+			<textarea name="sothich" rows="5" style=" width:307px;"></textarea>
+		</div>
+	</div>		
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<br />
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+<? if ($id['option'] == 'edit') {?>
+	<p>
+	<h5>Cập nhật thông tin thành viên: <?=$menu[$id['com']][$id['target']]?> - <?=$detail[0]['title']?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div>
+	<form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh xưng :
+		</div>
+		<div id="rs_line_r">
+			<input type="radio" name="gender" value="1" <? if($detail[0]['gender'] == "1") echo "checked"; else echo "";?> />Mr &nbsp; <input type="radio" name="gender" value="0" <? if($detail[0]['gender'] == "0") echo "checked"; else echo "";?> />Ms
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Họ và tên đệm :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="firstname" value="<?=$detail[0]['firstname']?>" size="25" />
+			&nbsp;&nbsp;Tên <input type="text" name="lastname" value="<?=$detail[0]['lastname']?>" size="10" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Chức vụ :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="title" value="<?=$detail[0]['title']?>" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Phòng ban :
+		</div>
+		<div id="rs_line_r">
+			<select name="room" style=" width: 175px; "/>
+				<option value="Maketing" <? if ($detail[0]['room'] != 'Maketing') echo ""; else echo "selected";?>>Phòng Maketing</option>
+				<option value="Kỹ thuật" <? if ($detail[0]['room'] != 'Kỹ thuật') echo ""; else echo "selected";?>>Phòng Kỹ thuật</option>
+				<option value="IT" <? if ($detail[0]['room'] != 'IT') echo ""; else echo "selected";?>>Phòng IT</option>
+				<option value="Kế toán" <? if ($detail[0]['room'] != 'Kế toán') echo ""; else echo "selected";?>>Phòng Kế toán</option>
+            </select>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ngày gia nhập :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="adday" value="<?=$detail[0]['adday']?>" size="6" />&nbsp;&nbsp;Tháng:
+			<input type="text" name="admonth" value="<?=$detail[0]['admonth']?>" size="6" />
+			&nbsp;&nbsp;Năm:
+			<input type="text" name="adyear" value="<?=$detail[0]['adyear']?>" size="7" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Email :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="email" value="<?=$detail[0]['email']?>" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Điện thoại :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="telephone" value="<?=$detail[0]['telephone']?>" size="12" />
+			&nbsp;&nbsp;Di động:
+			<input type="text" name="handphone" value="<?=$detail[0]['handphone']?>" size="18" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Mật khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="password" name="password" value="" size="37" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nhập lại mật khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="password" name="repassword" value=""  size="37"  />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Địa chỉ :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="address" value="<?=$detail[0]['address']?>" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">&nbsp;
+		</div>
+		<div id="rs_line_r">
+			<select name="district" style=" width: 135px; "/>
+            	<option value="q1" <? if ($detail[0]['district'] != 'q1') echo ""; else echo "selected";?>>Quận 1</option>
+				<option value="q2" <? if ($detail[0]['district'] != 'q2') echo ""; else echo "selected";?>>Quận 2</option>
+				<option value="q3" <? if ($detail[0]['district'] != 'q3') echo ""; else echo "selected";?>>Quận 3</option>
+				<option value="q4" <? if ($detail[0]['district'] != 'q4') echo ""; else echo "selected";?>>Quận 4</option>
+				<option value="q5" <? if ($detail[0]['district'] != 'q5') echo ""; else echo "selected";?>>Quận 5</option>
+				<option value="q6" <? if ($detail[0]['district'] != 'q6') echo ""; else echo "selected";?>>Quận 6</option>
+				<option value="q7" <? if ($detail[0]['district'] != 'q7') echo ""; else echo "selected";?>>Quận 7</option>
+				<option value="q8" <? if ($detail[0]['district'] != 'q8') echo ""; else echo "selected";?>>Quận 8</option>
+				<option value="q9" <? if ($detail[0]['district'] != 'q9') echo ""; else echo "selected";?>>Quận 9</option>
+				<option value="q10" <? if ($detail[0]['district'] != 'q10') echo ""; else echo "selected";?>>Quận 10</option>
+				<option value="q11" <? if ($detail[0]['district'] != 'q11') echo ""; else echo "selected";?>>Quận 11</option>
+				<option value="q12" <? if ($detail[0]['district'] != 'q12') echo ""; else echo "selected";?>>Quận 12</option>
+				<option value="binhthanh" <? if ($detail[0]['district'] != 'binhthanh') echo ""; else echo "selected";?>>Quận Bình Thạnh</option>
+				<option value="binhtan" <? if ($detail[0]['district'] != 'binhtan') echo ""; else echo "selected";?>>Quận Bình Tân</option>
+				<option value="tanbinh" <? if ($detail[0]['district'] != 'tanbinh') echo ""; else echo "selected";?>>Quận Tân Bình</option>
+				<option value="tanphu" <? if ($detail[0]['district'] != 'tanphu') echo ""; else echo "selected";?>>Quận Tân Phú</option>
+				<option value="thuduc" <? if ($detail[0]['district'] != 'thuduc') echo ""; else echo "selected";?>>Quận Thủ Đức</option>
+            </select>
+			<select name="city" style=" width: 175px; "/>
+				<option value="hcm" <? if ($detail[0]['city'] != 'hcm') echo ""; else echo "selected";?>>TP. Hồ Chí Minh</option>
+				<option value="binhduong" <? if ($detail[0]['city'] != 'binhduong') echo ""; else echo "selected";?>>Bình Dương</option>
+				<option value="dongnai" <? if ($detail[0]['city'] != 'dongnai') echo ""; else echo "selected";?>>Đồng Nai</option>
+				<option value="longan" <? if ($detail[0]['city'] != 'longan') echo ""; else echo "selected";?>>Long An</option>
+            </select>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hộ khẩu :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="thuongtru" value="<?=$detail[0]['thuongtru']?>" size="17" />
+			<select name="tinhthanh" style=" width: 175px; "/>
+				<option value="hcm" <? if ($detail[0]['tinhthanh'] != 'hcm') echo ""; else echo "selected";?>>TP. Hồ Chí Minh</option>
+				<option value="binhduong" <? if ($detail[0]['tinhthanh'] != 'binhduong') echo ""; else echo "selected";?>>Bình Dương</option>
+				<option value="dongnai" <? if ($detail[0]['tinhthanh'] != 'dongnai') echo ""; else echo "selected";?>>Đồng Nai</option>
+				<option value="longan" <? if ($detail[0]['tinhthanh'] != 'longan') echo ""; else echo "selected";?>>Long An</option>
+				<option value="binhthuan" <? if ($detail[0]['tinhthanh'] != 'binhthuan') echo ""; else echo "selected";?>>Bình Thuận</option>
+            </select>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ngày sinh :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="bday" value="<?=$detail[0]['bday']?>" size="6" />&nbsp;&nbsp;Tháng:
+			<input type="text" name="bmonth" value="<?=$detail[0]['bmonth']?>" size="6" />
+			&nbsp;&nbsp;Năm:
+			<input type="text" name="byear" value="<?=$detail[0]['byear']?>" size="7" />
+		</div>
+	</div>
+	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Số CMND:
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="cmnd" value="<?=$detail[0]['cmnd']?>" size="47" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tình trạng :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="status" value="<?=$detail[0]['status']?>" size="22" />
+			&nbsp;&nbsp;Mã group:
+			<input type="text" name="membergroup" value="<?=$detail[0]['membergroup']?>" size="6" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ảnh cá nhân:
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="picture" size="37" /> 
+			<input type="hidden" name="old_picture" value="<?=$detail[0]['picture']?>" />
+			<br />
+			<? if ($detail[0]['picture']) echo '<img src="../lib/files/'.$detail[0]['picture'].'" height="80">'; ?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Thông tin khác :
+		</div>
+		<div id="rs_line_r">
+			<textarea name="detail" rows="5" style=" width:307px;"><?=$detail[0]['detail']?></textarea>
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Sở thích :
+		</div>
+		<div id="rs_line_r">
+			<textarea name="sothich" rows="5" style=" width:307px;"><?=$detail[0]['sothich']?></textarea>
+		</div>
+	</div>		
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<br />
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>'" />
+		</div>
+	</div>
+	</form>
+	</div>
+<? }?>
+<? if ($id['option'] == 'delete') {?>
+	<p>
+	<h5>Mục xóa thành viên: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh sách thành viên sẽ bị xóa :
+			<p>Bạn cần lưu ý rằng khi đã quyết định xóa một thành viên thì không thể phục hồi lại</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($rs_list); $i++) { ?>
+			<div><strong><?=$rs_list[$i]['firstname']?> <?=$rs_list[$i]['lastname']?><? if($rs_list[$i]['lastname'] == "") echo '#'.$rs_list[$i]['id'];?></strong></div>
+		<? }?>	
+		</div>
+	</div>
+	<div id="rs_line">&nbsp;</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>

@@ -1,0 +1,139 @@
+body{ 
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;  
+	color:#333;
+	margin:0px;
+	padding:0px;
+	width:100%;
+}
+
+a{
+	color:#555;
+	text-decoration:none;
+	outline:none;
+}
+a:hover{
+	color:#4c779a;
+	text-decoration:none;
+	outline:none;
+}
+.ylink{
+	color:#f0f0f0;
+	text-decoration:none;
+	outline:none;
+	font-size:11px;
+}
+.ylink:hover{
+	color:#fff;
+	text-decoration:underline;
+	outline:none;
+}
+.dangnhaplk{
+	font-size:14px;
+	font-weight:bold;
+}
+.dangnhapbt{
+	cursor:pointer;
+	background:url(http://xalomuaban.com/themes/default/images/dangnhapbt.jpg) bottom repeat-x;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #ddd;
+	margin:0;
+	padding:3px 5px;
+}
+.dangnhapbt:hover{
+	cursor:pointer;
+	background: url(http://xalomuaban.com/themes/default/images/bgsublink.jpg) bottom repeat-x;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #ddd;
+	margin:0;
+	padding:3px 5px;
+}
+.tieude{
+	color:#555;
+	text-decoration:none;
+	outline:none;
+	font-size:11px;
+	line-height:18px;
+}
+.tieude:hover{
+	color:#FF6600;
+	text-decoration:none;
+	outline:none;
+}
+.gia{
+	font-size:12px; font-weight:bold;
+}
+.maucam{
+	color:#FF6600;
+	text-decoration:none;
+	outline:none;
+	font-size:11px;
+}
+.maucam:hover{
+	color:#003399;
+	text-decoration:none;
+	outline:none;
+}
+
+.cams{
+	color:#555;
+	text-decoration:underline;
+	outline:none;
+}
+.cams:hover{
+	color:#C00;
+	text-decoration: underline;
+	outline:none;
+}
+
+
+.wlink{
+	color:#fff;
+	text-decoration:none;
+	outline:none;
+}
+.wlink:hover{
+	color:#f0e854;
+	text-decoration:none;
+	outline:none;
+}
+
+
+/*========== phan trang ============*/
+.tron01{
+	width:18px;
+	height:20px;
+	line-height:20px;
+	text-decoration:none;
+	background-color:transparent;
+	border:1px solid #999;
+	text-align:center;
+	font-size:13px;
+	outline:none;
+	margin:0px 3px 0px 3px;
+	float:right;
+}
+.tron01:hover{
+	color: #ff8a00;
+}
+.tron02{
+	width:18px;
+	height:20px;
+	line-height:20px;
+	text-decoration:none;
+	background:transparent;
+	border:1px solid #eee;
+	text-align:center;
+	font-size:13px;
+	outline:none;
+	margin:0px 3px 0px 3px;
+	float:right;
+}
+.tron02:hover{
+	color:#f00;
+	border:1px solid #ff8a00;
+}

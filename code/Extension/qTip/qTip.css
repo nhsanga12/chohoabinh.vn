@@ -1,0 +1,13 @@
+div#qTip {
+ padding:4px 8px 4px 8px;
+ display: none;
+ background-image:url(http://chiakhoatraotay.vn/themes/default/images/tooltip_bg.png);
+ color: #222;
+ font: 12px Verdana, Arial, sans-serif;
+ text-align: left;
+ position: absolute;
+ z-index: 1000;
+ -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+ border-radius: 3px;
+}

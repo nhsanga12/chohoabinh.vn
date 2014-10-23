@@ -1,0 +1,252 @@
+#red {
+	color:red;
+}
+input {
+	font-size:12px;
+	font-weight:bold;
+	color:#003366;
+}
+select {
+	font-size:12px;
+}
+#pages {
+	width:99%;
+	margin:auto;
+	display:table;
+	margin-top:10px;
+	border:1px solid #CCCCCC;
+	background:#FFFFFF;
+}
+#frontpages {
+	width:100%;
+	margin:0px;
+	display:table;
+ }
+#mysitelogo {
+	width:100%;
+	margin:0px;
+	text-align:center;
+	vertical-align:middle;
+	display:table;
+}
+#front_top {
+	width:100%;
+	margin:0px;
+	text-align:center;
+	vertical-align:middle;
+	display:table;
+	border-bottom:2px outset #eeeeee;
+}
+#front_cont {
+	width:100%;
+	float:right;
+	display:block;
+}
+#front_cont_m {
+	padding:5px;
+	text-align:left;
+}
+#copyright {
+	margin:auto;
+	width:100%;
+	text-align:center;
+	margin-top:20px;
+	font-size:9px;
+	color:#999999;
+}
+#alert_box {
+	margin:auto;
+	background:url(../images/login_bg_g.jpg) center top no-repeat;
+	border:none;
+	width:588px;
+	height:304px;
+	padding:1px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#alert_header {
+	width:100%;
+	line-height:45px;
+	color:#888;
+	margin-left:70px;
+	background:none;
+}
+#alert_detail {
+	margin-left:200px;
+	padding:20px;
+	display:table;
+}
+#login_left {
+	width:45%;
+	text-align:right;
+	float:left;
+	line-height:22px;
+	display:block;
+}
+#login_right {
+	width:50%;
+	float:right;
+	line-height:22px;
+	display:block;
+	text-align:left;
+}
+#menu_l {
+	margin:0px;
+	line-height:22px;
+	font-size:12px;
+}
+ul {
+	margin:0px;
+	padding:0px;
+}
+#menu_l ul {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	line-height:22px;
+}
+#menu_l li {
+	margin:0px;
+	list-style:none;
+	line-height:22px;
+	padding-left:10px;
+	font-weight:normal;
+}
+#menu_l ul ul {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+#menu_l li li {
+	margin:0px;
+	list-style:none;
+	line-height:22px;
+	padding-left:0px;
+	font-weight:normal;
+}
+#menu_l strong {
+	color:#FF0000;
+	line-height:22px;
+}
+#menu_l a {
+	line-height:22px;
+}
+#box_l{
+	margin:auto;
+	border:1px solid #CCCCCC;
+	margin-left:3px;
+	padding:1px;
+}
+#box_l_header {
+	width:100%;
+	line-height:30px;
+	color:#FFFFFF;
+	background:#73a04d;
+	font-weight:bold;
+}
+.tools{
+	margin:auto;
+	border:1px solid #CCCCCC;
+	border-top:none;
+	margin:0px 5px 0px 5px;
+}
+.tools_header {
+	width:100%;
+	line-height:30px;
+	color:#678;
+	background: #fff;
+	font-weight:bold;
+	padding:0px 0px;
+}
+#site_detail {
+	display:table;
+	width:99%;
+	margin-left:1%;
+}
+#rs_line_h {
+	display:table;
+	width:98%;
+	margin:auto;
+	margin-bottom:10px;
+	margin-top:10px;
+	margin-right:1%;
+	margin-left:1%;
+}
+#rs_line_h_l {
+	float:left;
+	width:65%;
+}
+#rs_line_h_r {
+	float:right;
+	width:34%;
+	text-align:right;
+	background:url(../images/arrow_turn.png) bottom right no-repeat;
+}
+#rs_line {
+	display:table;
+	width:98%;
+	margin:0 1% 0 1%;
+	margin:auto;
+}
+#rs_line_l {
+	float:left;
+	width:26%;
+	text-align:right;
+	line-height:22px;
+	border-bottom:1px dotted #CCCCCC;
+}
+#rs_line_l p {
+	font-size:10px;
+	font-style:italic;
+	display:table;
+}
+#rs_line_r {
+	float:right;
+	width:70%;
+	margin-right:1%;
+	line-height:22px;
+}
+.dangtuyen input {
+	width:70%;
+}
+.dangtuyen textarea{
+	width:69%;
+	height:50px;
+	margin-bottom:10px;
+}
+.dangtuyen select{
+	width:50%;
+}
+
+#rs_line_u {
+	float:left;
+	width:100%;
+	text-align:left;
+	line-height:22px;
+	border-bottom:1px dotted #CCCCCC;
+}
+#rs_line_d {
+	float:right;
+	width:100%;
+	text-align:left;
+	line-height:22px;
+	border-bottom:1px dotted #CCCCCC;
+	margin-bottom:10px;
+}
+#rs_header {
+	font-weight:bold;
+	float:left;
+	border-bottom:1px solid #CCCCCC;
+	border-right:none;
+	margin-bottom:2px;
+	line-height:22px;
+	height:22px;
+}
+#rs_detail {
+	float:left;
+	border-bottom:1px dotted #CCCCCC;
+	border-right:none;
+	margin-bottom:2px;
+	line-height:22px;
+	height:22px;
+}

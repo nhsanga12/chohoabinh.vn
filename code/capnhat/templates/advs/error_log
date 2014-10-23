@@ -1,0 +1,4 @@
+[18-Nov-2009 08:48:47] PHP Notice:  Undefined variable: msg in /home/namphuon/public_html/cms/templates/advs/advs.html on line 3
+[18-Nov-2009 08:48:47] PHP Notice:  Undefined variable: file in /home/namphuon/public_html/cms/templates/advs/advs.html on line 21
+[18-Nov-2009 09:00:37] PHP Notice:  Undefined variable: msg in /home/namphuon/public_html/cms/templates/advs/advs.html on line 3
+[18-Nov-2009 09:00:37] PHP Notice:  Undefined variable: file in /home/namphuon/public_html/cms/templates/advs/advs.html on line 21

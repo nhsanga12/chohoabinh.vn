@@ -1,0 +1,1542 @@
+.sitemain{
+	margin:auto;
+	width:100%;
+}
+.main{
+	margin:auto;
+	width:1000px;
+}
+.clear{
+	clear: both;
+}
+#chitietsanpham{
+	float:left;
+	overflow-x:hidden!important;
+	width:772px!important;
+}
+#chitietsanpham img{
+	clear: both;
+	margin:10px auto auto auto;
+	max-width:600px;
+	display: block;
+	padding:0;
+}
+#chitietsanpham table{
+	border-collapse:collapse;
+	width:95%;
+	margin-left:5%;
+}
+#chitietsanpham td{
+	padding:5px 10px 5px 10px;
+	border: 1px solid #ddd;
+	background:#f9f9f5;
+}
+.frs{
+	background:#f7f7f1 !important;
+	color:#000;
+	font-size:14px;
+	font-weight:bold;
+}
+
+/*=============== HEADER BANNER ============*/
+.header{
+	width:1000px;
+	margin: auto;
+	padding:0px;
+	display:table;
+}
+.logosearch{
+	width:100%;
+	height:127px;
+	margin:0px;
+	overflow:hidden;
+}
+.headerleft{
+	width:402px;
+	height:127px;
+	margin:0px 0px 0px 0px;
+	float:left;
+}
+.headerleft img{
+	float:left;
+}
+
+.headerright{
+	width:597px;
+	height:127px;
+	margin:0px 0px 0px 0px;
+	float:left;
+	text-align:right;
+	font-size:14px;
+}
+.headerright_center{
+	width:360px;
+	height:97px;
+	margin:0px 0px 0px 0px;
+	float:left;
+	text-align:right;
+	font-size:14px;
+}
+.searchtop{
+	width:351px;
+	height:37px;
+	background:url(http://xalomuaban.com/themes/default/images/searchbg.png) top no-repeat;
+	float:left;
+	margin-top:50px;
+}
+.searchip{
+	width:280px;
+	height:32px;
+	margin:0px;
+	font-size:11px;
+	border:none;
+	padding-left:10px;
+	background:none;
+	color:#999999;
+}
+.searchbt{
+	width:55px;
+	height:32px;
+	border:none;
+	margin:0px;
+	background:none;
+	cursor:pointer;
+}
+
+.headerright_right{
+	width: auto;
+	height:97px;
+	margin:0px 0px 0px 0px;
+	float:right;
+	text-align:right;
+	font-size:14px;
+	overflow: hidden;
+}
+
+.headerright_bot{
+	width: auto;
+	height:30px;
+	margin:0px 0px 0px 0px;
+	float:right;
+	text-align:right;
+	font-size:11px;
+	clear:both;
+}
+
+
+.loginnow{
+	width:68px;
+	height:25px;
+	line-height:25px;
+	margin:0;
+	padding:0;
+	border:1px solid #0cb8f3;
+	color:#0ec5f8;
+	font-size:11px;
+	background:url(http://xalomuaban.com/themes/default/images/loginbg.jpg) repeat-x;
+}
+
+
+.ticktop{
+	width:100%;
+	height:36px;
+	margin:1 auto 6 auto;
+}
+
+.tickernew{
+	height:33px;
+	border:1px solid #08a3eb;
+	background:#3fbae4; /*url(http://xalomuaban.com/themes/default/images/tick_bg.jpg) repeat-x;*/
+	float:left;
+	margin:0px;
+	line-height:33px;
+	color:#fff;
+}
+.dropcontent{
+	width:820px;
+	float:left;
+	height:36px;
+	margin-left:15px;
+}
+.dropcontent a{
+	color:#fff;
+	outline:none;
+}
+.dropcontent a:hover{
+	color:#FF9;
+	outline:none;
+}
+
+.menutop{
+	width:100%;
+	height:33px;
+	margin:0px;
+}
+
+/*=============== noi dung ============*/
+.content{
+	width:1000px;
+	margin: auto;
+	padding:0px;
+	display:table;
+	height:500px;
+}
+.rows{
+	width:1000px;
+	margin: 6px 0px 6px 0px;
+	float:left;
+}
+.lefts{
+	width:773px;
+	margin:0px;
+	float:left;
+}
+.rights{
+	width:221px;
+	margin:0px 0px 0px 6px;
+	float:left;
+}
+
+.banner{
+	height:200px;
+	overflow:hidden;
+}
+
+.box_hot{
+	width:100%;
+	margin:0px 0px 15px 0px;
+}
+.box_hot_tit{
+	margin:0px;
+	padding:7px 10px 8px 8px;
+	background:url(http://xalomuaban.com/themes/default/images/tick_bg.jpg) repeat-x;
+	font-size:11px;
+	text-transform:uppercase;
+	line-height:28px;
+	font-weight:bold;
+	clear:both;
+}
+
+.box_hot h2{
+	margin:0px;
+	padding:0px 10px;
+	background:url(http://xalomuaban.com/themes/default/images/tick_bg.jpg) repeat-x;
+	font-size:11px;
+	text-transform:uppercase;
+	line-height:28px;
+	border:1px solid #0aaaee;
+	border-bottom:none;
+}
+
+.box_hot_cont{
+	padding:10px 0px 15px 0px;
+	line-height:20px;
+	background:#fff;
+	
+}
+.homepro{
+	width:168px;
+	height:168px;
+	margin:0px 0px 10px 0px;
+	border:1px solid #abc;
+}
+.vipicon{
+	margin:0px 0px 0px 10px;
+	float:left;
+}
+.tdsanpham{
+	width:25%;
+}
+.tdsanphamhot{
+	background:url(http://xalomuaban.com/themes/default/images/vip_icon.jpg) left top no-repeat;
+	background-position:14px 180px;
+}
+.groupbanner{
+	width:100%;
+	margin:0px 0px 15px 0px;
+	overflow:hidden;
+}
+.groupbanner img{
+	height:90px;
+	float:left;
+	margin:0px 5px 0px 0px;
+}
+.right_banner{
+	width:221px;
+	margin:0px;
+	overflow:hidden;
+	background:#f0fdfe;
+}
+.rightblock{
+	width:221px;
+	height:200px;
+	margin:0px 0px 10px 0px;
+	overflow:hidden;
+}
+.rightblock .imgr{
+	width:221px;
+	margin:0px 0px 7px 0px;
+}
+
+/*======= detail ==========*/
+
+
+/*====== FOOTER =========*/
+.footer{
+	width:100%;
+	margin: auto;
+	padding:0px;
+	display:table;
+	margin-top:20px;
+}
+.navfooter{
+	width:100%;
+	background:url(http://xalomuaban.com/themes/default/images/footer_bg.jpg) top repeat-x;
+	height:144px;
+}
+.footlink{
+	text-decoration:none;
+	font-size:14px;
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	color:#fff;
+}
+.footlink:hover{
+	text-decoration:none;
+	color:#FFFFCC;
+}
+.sublinkfoot{
+	margin-top:15px;
+	color:#d3d3d3;
+}
+.sublink{
+	color:#d3d3d3;
+	line-height:20px;
+}
+.sublink:hover{
+	color:#FFCC99;
+}
+.copyright{
+	text-align:left;
+	padding-bottom:30px;
+	margin-bottom:0px;
+	background:#f2e5d4;
+}
+
+/*=========== LIST SAN PHAM ===========*/
+.bgtrang{
+	width:100%;
+	margin: 3px 0px 0px 0px;
+	background:#fff;
+	display:table;
+}
+
+.pro_sublink{
+	background:url(http://xalomuaban.com/themes/default/images/bgsublink.jpg) bottom repeat-x #feffff;
+	width:998px;
+	margin: 2px 0px 0px 0px;
+	float:left;
+	border: 1px solid #ddd;
+	font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+.pro_sublink_list{
+	margin:3px 8px 3px 8px;
+	text-align:left;
+	line-height:25px;
+	color:#d9e2ec;
+}
+.pro_mainlink{
+	font-size:13px;
+	color:#06688b;
+	display:inline;
+	font-weight:bold;
+	padding:0px 10px;
+}
+.pro_mainlink:hover,.pro_mainsl,.pro_mainsl:hover{
+	color:#f99f1a;
+	font-weight:bold;
+	padding:0px 10px;
+	font-size:13px;
+}
+
+.pro_subsub{
+	background:#fff;
+	width:998px;
+	margin: 0px;
+	float:left;
+	border: 1px solid #ddd;
+	border-top:none;
+	font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+.pro_subsub_list{
+	margin:8px;
+	text-align:left;
+	line-height:20px;
+	color:#d9e2ec;
+}
+.slink{
+	font-size:12px;
+	color:#555;
+	display: inline;
+	padding:2px 5px;
+}
+.slink:hover,.slink_sl,.slink_sl:hover{
+	font-size:12px;
+	color:#f99f1a;
+	padding:2px 5px;
+}
+.otimkiem{
+	width:100%;
+	height:30px;
+	clear:both;
+	padding:0px;
+	margin:10px 15px 13px 15px;
+}
+.slsearch{
+	width:200px;
+}
+
+
+.pro_list{
+	width:100%;
+	margin:0px;
+	display:table;
+}
+.pro_list_header{
+	width:100%;
+	height:68px;
+	display:table;
+	background:url(http://xalomuaban.com/themes/default/images/bg_header_sanpham.jpg) top repeat-x;
+}
+.sptab{
+	width:772px;
+	height:33px;
+	margin:0px;
+	display:table;
+	border:1px solid #27b0d1;
+}
+.sptab span{
+	width:auto;
+	height:30px;
+	line-height:30px;
+	padding:0px 10px;
+	margin:3px 0px -3px 30px;
+	background:url(http://xalomuaban.com/themes/default/images/bg_tabsanpham.jpg) top repeat-x;
+	display:table;
+	font-weight:bold;
+	border:1px solid #cbcbcb;
+	border-bottom:none;
+	float:left;
+	cursor:pointer;
+}
+
+.spcolum{
+	width:772px;
+	min-height:32px;
+	line-height:18px;
+	margin:0px;
+	display:table;
+	border-bottom:1px solid #27b0d1;
+	border-left:1px solid #27b0d1;
+	border-right:1px solid #27b0d1;
+}
+
+.spcolum span{
+	width:auto;
+	height:30px;
+	line-height:30px;
+	margin:0px 0px 0px 0px;
+	padding:0px;
+}
+
+.tb_pro{
+}
+
+.tb_pro tr td{
+	border-bottom: 2px solid #ddd;
+}
+.subpro tr td{
+	border: none;
+	line-height:20px;
+	font-family:Tahoma,Verdana, Arial, Helvetica, sans-serif
+}
+
+.listpro_img{
+	width:148px;
+	height:148px;
+	margin:15px 10px 15px 13px;
+	border:1px solid #ddd;
+}
+.noidungtomtat{
+	margin-top:15px;
+	border-right:1px solid #bfbfbf;
+}
+.noidungtomtat h2{
+	font-size:14px;
+	line-height:18px;
+	color:#087093;
+}
+.noidungtomtat h2:hover{
+	color:#FF6600;
+}
+.pro_gia{
+	color:#00a9d6;
+	font-weight:bold;
+}
+.likeshare{
+	background:url(http://xalomuaban.com/themes/default/images/likeshare.jpg) top repeat-x;
+	width:45px;
+	height:19px;
+	line-height:19px;
+	color:#4f6aa3;
+	text-align:center;
+	float:right;
+	margin-right:10px;
+	cursor:pointer;
+}
+.amount_like{
+	width: auto;
+	height:20px;
+	line-height:20px;
+	float:left;
+	padding:0px;
+	margin:5px 0px 0px -4px;
+}
+.amount_like_left{
+	width: 8px;
+	height:20px;
+	line-height:20px;
+	float:left;
+	padding:0px;
+	margin:0px;
+	background:url(http://xalomuaban.com/themes/default/images/quote.png) left center no-repeat;
+}
+.amount_like_center{
+	width: auto;
+	max-width:35px;
+	height:20px;
+	line-height:20px;
+	float:left;
+	padding:0px;
+	margin:0px;
+	background:url(http://xalomuaban.com/themes/default/images/quote.png) center no-repeat;
+}
+.amount_like_right{
+	width: 8px;
+	height:20px;
+	line-height:20px;
+	float:left;
+	padding:0px;
+	margin:0px;
+	background:url(http://xalomuaban.com/themes/default/images/quote.png) right center no-repeat;
+}
+
+.likebt{
+	background:url(http://xalomuaban.com/themes/default/images/likebt.jpg) center no-repeat;
+	width:65px;
+	height:30px;
+	margin:25px 10px 5px 10px;
+}
+.sharebt{
+	background:url(http://xalomuaban.com/themes/default/images/sharebt.jpg) center no-repeat;
+	width:65px;
+	height:30px;
+	margin:5px 10px;
+}
+
+.xemchitiet_bt{
+	background:url(http://xalomuaban.com/themes/default/images/bg_xemchitiet.jpg) top repeat-x;
+	width:auto;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	text-align:center;
+	padding:0px 10px;
+	border:1px solid #08a3eb;
+}
+.chitietsp{
+	width:100%;
+	height:auto;
+	margin:0px;
+	padding:0px;
+	display:table;
+}
+.chitietsp_header{
+	width:100%;
+	height:37px;
+	margin:0px;
+	padding:0px;
+	display:table;
+	background:url(http://xalomuaban.com/themes/default/images/detail_header_bg.jpg) top repeat-x #e9f7fe;
+}
+.chitietsp_header span{
+	background:url(http://xalomuaban.com/themes/default/images/detail_header_tab_bg.jpg) top repeat-x #e9f7fe;
+	border:1px solid #08a3eb;
+	padding:9px 10px;
+	margin:0px;
+	line-height:36px;
+	font-weight:bold;
+	height:36px;
+	color:#fff;
+	font-size:13px;
+}
+.giohang{
+	background:url(http://xalomuaban.com/themes/default/images/shopping_carticon.png) top left no-repeat;
+	width:150px;
+	height:30px;
+	padding:0px 0px;
+	margin:2px 0px 0px 0px;
+	float:right;	
+	line-height:30px;
+	font-size:12px;
+}
+.chitietsp_sum{
+	width:100%;
+	height: auto;
+	margin:10px 0px;
+	padding:0px;
+	display:table;
+	float:left;
+}
+.chitietsp_img{
+	border:1px solid #ddd;
+	width:400px;
+	float:left;
+}
+.chitietsp_img img{
+	margin:1%;
+	width:97%;
+	border:1px solid #eee;
+}
+
+.chitietsp_cont{
+	width:350px;
+	float:right;
+	line-height:20px;
+}
+.chitietsp_cont h2{
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	color:#00a9d6;
+}
+.pro_gia2{
+	color:#f00;
+	font-weight:bold;
+	font-size:13px;
+}
+.pro_duong{
+	color:#00a9d6;
+	font-size:13px;
+}
+.muahang{
+	background:url(http://xalomuaban.com/themes/default/images/bg_xemchitiet.jpg) top repeat-x;
+	width:60px;
+	height:23px;
+	line-height:23px;
+	color:#fff;
+	text-align:center;
+	padding:0px 5px;
+	border:1px solid #08a3eb;
+	float:right;
+	margin:0px 20px 0px 0px;
+}
+
+.spdetail_tab{
+	width:772px;
+	height:33px;
+	margin:0px;
+	display:table;
+	border:1px solid #27b0d1;
+}
+.spdetail_tab span{
+	width:auto;
+	height:30px;
+	line-height:30px;
+	padding:0px 10px;
+	margin:3px 0px -3px 3px;
+	display:table;
+	font-weight:bold;
+	border-bottom:none;
+	float:left;
+	cursor:pointer;
+	border-right:1px solid #ddd;
+}
+.spdetail_tab span:hover{
+	background:url(http://xalomuaban.com/themes/default/images/bg_tabsanpham.jpg) top repeat-x;
+	border-bottom:1px solid #fff;
+}
+
+.active_tab{
+	background:url(http://xalomuaban.com/themes/default/images/bg_tabsanpham.jpg) top repeat-x;
+	border:1px solid #cbcbcb;
+}
+
+.pro_list_header2{
+	width:100%;
+	height:68px;
+	display:table;
+	background:url(http://xalomuaban.com/themes/default/images/bg_header_sanpham2.jpg) top repeat-x;
+}
+.newslists td{
+	background: url(http://xalomuaban.com/themes/default/images/2_1.gif) repeat-x left bottom;
+}
+.left_box{
+	width:98%;
+	margin:0 0 20px 1%;
+	border:1px solid #d4f3f9;
+	display:table;
+	background:#f0fdfe;
+}
+.left_box_header{
+	width:100%;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	font-size:13px;
+	font-weight:bold;
+	display:table;
+	background:url(http://xalomuaban.com/themes/default/images/left_box_bg.jpg) bottom repeat-x;
+}
+.left_box_pro{
+	width:80%;
+	margin:0 10%;
+	height:auto;
+	display:table;
+	text-align:center;
+	line-height:20px;
+}
+.left_box_pro img{
+	margin:10px 0px;
+}
+.left_box_pro h3{
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	line-height:14px;
+	color:#00a9d6;
+}
+.left_box_pro h3:hover{
+	color:#FF6600;
+}
+
+.phanhoi{
+	width:772px;
+	min-height:100px;
+	line-height:18px;
+	margin:0px;
+	display:table;
+}
+.phanhoi_header{
+	border-bottom:1px solid #27b0d1;
+	padding:0px 0px 0px 10px;
+	margin:15px 0px 0px 0px;
+	height:30px;
+	line-height:31px;
+	font-size:13px;
+	font-weight:bold;
+	color:#009fe8;
+	background:url(http://xalomuaban.com/themes/default/images/phanhoi_icon.jpg) left no-repeat;
+	background-position:5px 0px;
+}
+.phanhoi_form{
+	margin:10px 0px 20px 20px;
+}
+.phanhoi_input{
+	color:#808285;
+	border:1px solid #808285;
+	background:#fff;
+	height:23px;
+	width:200px;
+	margin:5px 0px 5px 5px;
+	padding:0px 0px 0px 5px;
+}
+.phanhoi_input:focus{
+	background:#FFFFCC;
+}
+.phanhoi_send{
+	background:url(http://xalomuaban.com/themes/default/images/bg_xemchitiet.jpg) top repeat-x;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	color:#fff;
+	text-align:center;
+	padding:0px 5px;
+	border:1px solid #08a3eb;
+	float:right;
+	margin:5px 0px 5px 80px;
+	cursor:pointer;
+}
+.ghdambao{
+	width:120px;
+	margin-left:653px;
+	height:60px;
+	background:url(http://xalomuaban.com/themes/default/images/gianhangdambao.png) top right no-repeat;
+	position:absolute;
+	
+}
+
+/*================ NEWS ===============*/
+.imgnews{
+	width:130px;
+	height:130px;
+	background:#c3c3c3;
+	margin:15px;
+	padding:0px;
+}
+.news_img{
+	width:120px;
+	height:120px;
+	margin:5px;
+	padding:0px;
+}
+.sumnews{
+	font-size:12px; line-height:18px; text-align:justify;
+	padding:0px;
+	margin:0px 20px 10px 0px;
+}
+.chitiettin{
+	margin:0px 20px 0px 20px;
+	text-align:justify;
+	line-height:20px;
+}
+.chitiettin h1{
+	font-size:16px;
+	color:#003399;
+}
+.chitiettin img{
+	clear:both;
+	margin: 15px auto;
+	max-width: 600px;
+	display: block;
+	vertical-align: middle;
+}
+.chitiettin td{
+	padding:10px;
+	border:none;
+}
+.newsupdate{
+	font-size:11px;
+	color:#aaa;
+	line-height:10px;
+	padding:0;
+	margin:0 0 10px 0;
+}
+.newsquick{
+	font-size:13px;
+	color:#006666;
+	line-height:20px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+}
+.chitiethinh{
+	float:right;
+	margin:0px 10px 10px 20px;
+}
+
+/*============== ĐĂNG KÝ ĐĂNG NHẬP ==============*/
+.pin_list{
+	margin:0px 0px 20px 0px;
+	background:url(http://xalomuaban.com/themes/default/images/icon_pin2.png) left no-repeat;
+	height:15px;
+	line-height:15px;
+	padding-left:20px;
+	font-size:14px;
+}
+.logolist{
+	display:table;
+	margin:0px 0px 5px 0px;
+}
+.logolist img{
+	width:100px;
+	float:left;
+	margin:0px 10px 20px 10px;
+	border:1px solid #ddd;
+	cursor:pointer;
+}
+.logolist a{
+	color:#ddd;
+}
+.logolist a:hover{
+	color:#fdce62;
+}
+.logolist img:hover{
+	border:1px solid #fdce62;
+	cursor:pointer;
+}
+.pin_data{
+	background:url(http://xalomuaban.com/themes/default/images/pindate_bg.jpg) bottom repeat-x #fef9db;
+	width:95%;
+	margin:0 0 25px 0;
+	padding:10px 10px 30px 10px;
+	border:1px solid #e3cd83;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.pd_tit{
+	width:50px;
+	height:25px;
+	line-height:25px;
+	margin:0px;
+	padding:0px 0px 0px 30px;
+	display:table-cell;
+}
+.pd_inp{
+	width:520px;
+	height:25px;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	display:table-cell;
+}
+
+
+
+.regbox{
+	width:570px;
+	height:400px;
+	margin:20px auto 10px auto;
+	border:1px solid #ccc;
+	display:table;
+}
+.regbox_header{
+	width:560px;
+	padding-left:10px;
+	height:35px;
+	line-height:30px;
+	font-size:14px;
+	background:url(http://xalomuaban.com/themes/default/images/bgsublink.jpg) bottom repeat-x #feffff;
+	overflow:hidden;
+	border:none;
+}
+.regbox_cont{
+	width:100%;
+	display:table;
+}
+.regbox_cont_note{
+	width:95%;
+	padding:5% 1% 1% 5%;
+	font-size:12px;
+	line-height:20px;
+	display:table;
+}
+.regbox_corner_top{
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+}
+.regbox_corner_bottom{
+	-webkit-border-bottom-right-radius: 7px;
+	-webkit-border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+.regbox_footer{
+	background: #F2F2F2;
+	padding: 10px;
+	text-align: right;
+	position: relative;
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+}
+.newuser_button{
+    background: none;
+    border: 1px solid #999999;
+	border-bottom-style:double;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 5px 8px 5px 8px;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+}
+.loading112{
+	width:32px;
+	height:32px;
+	float:right;
+	position: relative;
+	left:0;
+	background:url(http://xalomuaban.com/themes/default/images/loading112.gif) no-repeat;
+	display:none;
+}
+
+/* Yarnball */
+#yarnball {
+	display: inline-block;
+	margin-top: 10px;
+	font-weight:500;
+}
+.yarnball {
+	list-style: none;
+	margin: 0;
+}
+.yarnlet {
+	display: inline;
+}
+.yarnlet a, .yarnlet a:link, .yarnlet a:visited {
+	color: #666;
+	display: inline-block;
+	font-size: 12px;
+	margin-left: -17px;
+	padding: 7px 17px 11px 25px;
+	position: relative;
+	text-decoration: none;
+	vertical-align: top;
+}
+.yarnlet.first a, .yarnlet.first a:link, .yarnlet.first a:visited {
+	padding-left: 8px;
+}
+
+body.ie7 .yarnlet.first a, body.ie7 .yarnlet.first a:link, body.ie7 .yarnlet.first a:visited {
+	padding-left: 17px;
+}
+.yarnlet a {
+	background-image: url(http://xalomuaban.com/themes/default/images/hc_yarnlett_global.png);
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+}
+/*.yarnlet:hover a {
+	background-position: 100% -48px;
+	color: #333;
+}*/
+.yarnlet_now a {
+	background-position: 100% -48px;
+	color:#FF6633;
+}
+.yarnlet:active a {
+	background-position: 100% -96px;
+	color: #333;
+}
+.yarnlet .left-yarn {
+	background: url(http://xalomuaban.com/themes/default/images/hc_yarnlett_global.png) no-repeat;
+	margin-left: -17px;
+	padding: 7px 6px 11px 4px;
+	z-index: 11;
+}
+.ff .yarnlet .left-yarn {
+	padding-top: .6em;
+}
+.yarnlet a:hover .left-yarn {
+	background-position: 0 -48px;/*old*/
+}
+.yarnlet a:active .left-yarn {
+	background-position: 0 -96px;
+}
+/* Yarnball for RTL */
+.rtl .yarnball {
+	margin-right: -17px;
+}
+.rtl .yarnlet a {
+	background: url(http://xalomuaban.com/themes/default/images/hc_yarnlett_global_rtl.png);
+	background-position: 0 0;
+}
+/*.rtl .yarnlet:hover a {
+	background-position: 0 -48px;
+}*/
+.rtl .yarnlet:active a {
+	background-position: 0 -96px;
+}
+.rtl .yarnlet .left-yarn {
+	background: url(http://xalomuaban.com/themes/default/images/hc_yarnlett_global_rtl.png) no-repeat;
+	background-position: 100% 0;
+	margin: 0 -27px 0 0;
+}
+/*.rtl .yarnlet a:hover .left-yarn {
+	background-position: 100% -48px;
+}*/
+.rtl .yarnlet a:active .left-yarn {
+	background-position: 100% -96px;
+}
+.rtl .yarnlet.first a, .rtl .yarnlet.first a:link, .rtl .yarnlet.first a:visited {
+	padding-left: 24px;
+}
+/* IE fixes */
+body.ie7 .yarnlet a:active, body.ie8 .yarnlet a:active {
+	background-position: 100% -96px;
+}
+body.rtl.ie7 .yarnlet a:active, body.rtl.ie8 .yarnlet a:active {
+	background-position: 0 -96px;
+}
+
+/* ============= LOGIN ============== */
+.login {
+    margin: 0 auto;
+    position: relative;
+	width:100%;
+}
+
+.login .wrap-login {
+    float: left;
+	padding-left:10px;
+}
+
+.login div.xalomuaban {
+    float: left;
+    text-align: center;
+    height: 120px;
+    position: relative
+}
+
+.login div.xalomuaban:first-child {
+    margin-right: 15px;
+}
+
+.login div.xalomuaban:hover {
+    background: url("http://xalomuaban.com/themes/default/images/tam-giac-down.png") no-repeat center top;
+}
+
+.login div.xalomuaban a {
+    line-height: 190px;
+    color: #999;
+    font-weight: bold;
+}
+
+.login div.xalomuaban a.lg-xlmb {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-siki.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-xlmb:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-siki.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-xlmb_2 {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-siki_2.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-xlmb_2:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-siki_2.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-face {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-face.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-face:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-face.png") no-repeat center center;
+    color: #197400;
+}
+
+.login div.xalomuaban a.lg-yahoo {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-yahoo.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-yahoo:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-yahoo.png") no-repeat center center;
+    color: #197400;
+}
+
+.login div.xalomuaban a.lg-google {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-google.png") no-repeat center center;
+}
+.login div.xalomuaban a.lg-google:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-google.png") no-repeat center center;
+    color: #197400;
+}
+
+.login div.xalomuaban a.lg-zing {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-zing.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-zing:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-zing.png") no-repeat center center;
+    color: #197400;
+}
+
+.login div.xalomuaban a.lg-twitter {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/bt-twitter.png") no-repeat center center;
+}
+
+.login div.xalomuaban a.lg-twitter:hover {
+    display: block;
+    width: 102px;
+    height: 102px;
+    background: url("http://xalomuaban.com/themes/default/images/h-twitter.png") no-repeat center center;
+    color: #197400;
+}
+.formdangnhap{
+	margin:10px 0px 10px 15px;
+}
+.inlog{
+	border: 1px solid #CCC;
+	padding: 3px;
+	width:95%;
+	height: 25px;
+	background-color:#f5f5f5;
+	margin:0px;
+}
+.jquery_ms{
+	padding:20px;
+	background:#FFFFCC;
+	border:1px solid #FFCC66;
+	position:absolute;
+	z-index:200;
+	top:45%;
+	left:35%;
+	width:20%;
+	display:none;
+	text-align:center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*============= TRANG CA NHAN ============*/
+.memlefts{
+	width:221px;
+	margin:0px;
+	float:left;
+}
+.mem_menu{
+	width:211px;
+	margin-left:6px;
+	border:1px solid #ccc;
+	display:table;
+}
+
+.menuleft{
+	font: 12px Verdana;
+	width: 100%;
+	float: left;
+	margin:0px;
+	background:none;
+}
+.menuleft ul{
+	z-index:300;
+	margin:0px 0px 10px 0px;
+	padding:0px;
+	list-style-type: none;
+	float:left;
+}
+.menuleft ul li{
+	position: relative;
+	display: inline;
+	float: left;color: #f00;
+	font-size:12px;
+	text-align:left;
+	background:none;
+	
+}
+.menuleft ul li a{
+	display: block;
+	background-color:#eee;
+	border:none;
+	color: #800;
+	padding: 10px 8px 10px 8px;
+	text-decoration: none;
+	font-weight:bold;
+}
+.menuleft ul li ul{
+	z-index:300;
+	margin:0px 0px 10px 0px;
+	padding:0px;
+	list-style-type: none;
+	float:left;
+}
+.menuleft ul li ul li{
+	background:#fff;
+	float:left;
+	width:100%;
+}
+.menuleft ul li ul li a{
+	color: #258;
+	background-color:#fff;
+	padding: 10px 8px 10px 8px;
+	text-decoration: none;
+	font-weight:100;
+}
+
+.memright{
+	width:773px;
+	margin:0px 0px 0px 6px;
+	float:left;
+}
+
+.tcn{
+	margin:3%;
+	width:94%;
+}
+.tcn_contents{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+.tcninput{
+	width:160px;
+	height:18px;
+	font-size:14px;
+	padding:5px;
+}
+.tcninput:focus{
+	background:#ffe;
+}
+.tcnsediv{
+	float:left;
+	width:190px;
+	margin-left:0px;
+}
+.tcnselect{
+	width:175px;
+	font-size:14px;
+	padding:5px 5px 5px 0px;
+	margin:0px;
+	float:left;
+}
+.tcnselect:focus{
+	background:#ffe;
+}
+#cke_contents,#cke_quick{
+	border-top:1px solid #cee3ed;
+}
+
+.bgxacnhan{
+	padding:0;
+	margin:0;
+	background: url("http://xalomuaban.com/themes/default/images/bt-op50.png") repeat center;
+	position:absolute;
+	position:fixed;
+	z-index:500;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	display:none;
+	text-align:center;
+}
+.popupxacnhan{
+	padding:0;
+	margin:20% auto auto auto;
+	background:none;
+	z-index:600;
+	display:block;
+	height:350px;
+	width:auto;
+	text-align:center;
+}
+.dangtat{
+	position:relative;
+	float:right;
+	color:#f00;
+	border:1px solid #f00;
+	margin:-40px 20px 0 0;
+	height:20px;
+	width:60px;
+	text-align:center;
+	line-height:20px;
+	font-size:11px;
+}
+
+.cauhinhngayup{
+	display:table;
+	border-top:1px dashed #ddd;
+	padding-top:8px;
+}
+.chonngayup{
+	cursor:pointer;
+}
+.soluotup{
+	width:100%;
+	display:table;
+	border:1px solid #ddd;
+	background:#f0f9fa;
+	padding:2%;
+	margin-bottom:10px;
+}
+.mucdieuchinhup{
+	color:#CC6600;
+	line-height:25px;
+	font-weight:bold;
+}
+.cacmocthoigian{
+	margin:3px 0px 0px 20px;
+	line-height:20px;
+}
+.moctg{
+	width:140px;	
+	float:left;
+}
+.moctg b{
+	color:#003399;
+}
+.lanup{
+	width:50px;
+	text-align:right;
+}
+.vip{	
+	font-weight:bold;
+	color:#f00;
+}
+.thanhvien{
+	font-weight:bold;
+	color:#006666;
+}
+.xacthuc{
+	color:#CC6600;
+}
+.ghdamban{
+	margin:10px 0px 0px 0px;
+}
+.tongtien{
+	font-size:15px;
+	text-align:right;
+	border-bottom:2px solid #ddd;
+	margin:0px 0px 0px 0px;
+	height:50px;
+	line-height:50px;
+	background:#FFFFCC;
+}
+.giotrong{
+	width:100%;
+	text-align:center;
+}
+.form_line{
+	float:left;
+	width:95%;
+	height:25px;
+	margin:3px 0 3px 5%;
+	display: table;
+}
+.form_line_left{
+	float:left;
+	width:20%;
+	text-align:left;
+	display: table;
+}
+.form_line_right{
+	float:left;
+	width:80%;
+	text-align:left;
+	display: table;
+}
+.tieudebang{
+	background:#e7f7fd;
+	color:#1e5978;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+}
+.noidungbang{
+	padding:10px 0px 10px 0px;
+	border-top: 1px solid #ddd;
+}
+.yellowcell{
+	width:60px; 
+	height:60px; 
+	margin:5px; 
+	display:table; 
+	text-align:center; 
+	line-height:60px; 
+	background:#FFFFCC; 
+	border:1px solid #666;
+	cursor:pointer;
+}
+.ngaythang{
+	font-size:18px;
+	background:#FFFFCC;
+	border:1px solid #ddd;
+	cursor:pointer;
+	height:50px;
+	text-align:center;
+	vertical-align:middle;
+	line-height:30px;
+}
+.bgdadat{
+	font-size:18px;
+	background:#efd6b3;
+	border:1px solid #ddd;
+	cursor: crosshair;
+	height:50px;
+	text-align:center;
+	vertical-align:middle;
+	line-height:30px;
+}
+
+.ngaythang:hover{
+	background:#FFCCCC;
+}
+
+.monthclick{
+	cursor:pointer; width:100%; height:100%; text-align:center; vertical-align:middle;
+}
+.homnay{
+	position: absolute;
+	color:#006666;
+	font-size:10px;
+	line-height:20px;
+	margin:-15px 0px 0px 3px;
+	z-index:10;
+}
+.ongaythang{
+	width:70px;
+	background:#fff;
+	border:1px solid #ddd;
+	padding:5px;
+	float:left;
+}
+.ongaythang_at{
+	background:#FFFFCC;
+}
+.red{
+	color:#FF0000;
+	padding:5px;
+	line-height:23px;
+}
+.blue{
+	color: #006699;
+	cursor:pointer;
+	padding:5px;
+	line-height:23px;
+}
+
+.ui-autocomplete-loading {
+    background: white url('http://xalomuaban.com/include/ajaxfunction/ui-anim_basic_16x16.gif') right center no-repeat;
+ }
+#loading{
+	text-align:center;
+}

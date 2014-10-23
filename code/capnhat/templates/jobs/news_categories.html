@@ -1,0 +1,268 @@
+<? if ($id['option'] == 'main') {?>
+	<div id="rs_line_h"><form action="" name="frm_srh" onsubmit="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main;groups:'.$id['groups'].';limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value;return false;">
+		<div id="rs_line_h_l">
+		<input type="text" name="search" size="50" value="" />
+		<select name="limit_on_page">
+			<option value="">Số tin hiển thị</option>
+			<option value="10" <? if ($config['limit_on_page'] == 10) echo 'selected'?>>10 mẫu tin/trang</option>
+			<option value="50" <? if ($config['limit_on_page'] == 50) echo 'selected'?>>50 mẫu tin/trang</option>
+			<option value="100" <? if ($config['limit_on_page'] == 100) echo 'selected'?>>100 mẫu tin/trang</option>
+		</select>
+		<input type="button" name="submit" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';groups:'.$id['groups'].';option:main;limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value" value="Lọc mẫu tin" />
+		</div>
+		<div id="rs_line_h_r">
+		<input type="button" name="add_new" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:add'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" value="Thêm mẫu tin"  />
+		<input type="button" name="delete" value="xóa mẫu tin" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:delete'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>');" title="Xóa những mẫu tin đã được chọn"  />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+	</form></div>
+	<div style="margin-bottom:7px;"><font color="#CC3300"><b>Nhóm menu	</b></font> - Có tất cả <strong><?=$pages['rs']?></strong> Menu. Đang xem trang <?=$pages['current']?>/<?=$pages['page']?>
+	</div>
+	<!-- Header -->
+	<form name="frm" action="" method="post" enctype="multipart/form-data" >
+	<div id="rs_line">
+		<div id="rs_header" style="width:5%">T.tự</div>
+		<div id="rs_header" style="width:59%">Tiêu đề/ Tên/ Quy cách</div>
+		<div id="rs_header" style="width:32%; text-align:left">Danh mục cha</div>
+		<div id="rs_header" style="width:3%; text-align:center;"><input type="checkbox" name="idall" id="idall" value="" title="Click để chọn tất cả" onclick="chkall();" /></div>
+	</div>
+	<!-- End Header -->
+	<!-- Detail -->
+	<? for ($i=0; $i < count($rs_list); $i++) { ?>
+	<div id="rs_line" onmousemove="this.style.background='#ffe0d1';" onmouseout="this.style.background='#ffffff';">
+		<div id="rs_detail" style="width:5%;">
+			<input type="text" name="oderid<?=$rs_list[$i]['id']?>" id="oderid<?=$rs_list[$i]['id']?>" size="8" value="<?=$rs_list[$i]['oderid'];?>" style="width:30px; border:0px; text-align:right; background:none;" /></div>
+		<div id="rs_detail" style="width:59%" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:edit;item:'.$rs_list[$i]['id']?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>?>'">
+		<a href="<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:edit;item:'.$rs_list[$i]['id']?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>" ><?=$rs_list[$i]['title']?><? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></a></div>
+		<div id="rs_detail" style="width:32%">
+			<? $cha = get_parentid_category($rs_list[$i]['id']);
+				$mucchinh = categories_detail($cha);
+				if($cha!=0) echo $mucchinh[0]['title']; else echo '/';
+			?>
+		</div>
+		<div id="rs_detail" style="width:3%; text-align:center;"><input type="checkbox" name="iddetail" value="<?=$rs_list[$i]['id']?>" title="đánh dấu chọn mẫu tin này" /></div>
+	</div>
+	<? }?>
+	<!-- End Detail -->
+	<div id="rs_line">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="submit" name="save" value="Lưu thông tin" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Xem trang : <select name="gotopgae" onchange="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';groups:'.$id['groups'].';option:main;limit_on_page:'.$config['limit_on_page'].';page:'?>'+this.value">
+			<? for ($i = 1; $i <= $pages['page']; $i++) { ?>
+			 <option value="<?=$i?>" <? if ($i == $pages['current']) echo 'selected';?>><?=$i?></option>
+			<? }?>
+		</select>
+	</div></form>
+<? }?>
+<? if ($id['option'] == 'add') {?>
+	<p>
+	<h5>Thêm mẫu tin: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div style=" margin:0px; width:100%; height:30px;">
+			<input type="button" name="cancel" value="Danh sách menu" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" />
+			<input type="submit" name="submit" value="Save" />
+		</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nằm trong danh mục :
+			<p>Vui lòng chọn danh mục cha trong danh sách danh mục đã có</p>
+		</div>
+		<div id="rs_line_r">
+			<?  categories_select ('add_parentid',$id['groups'],0,0,0,'') ?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hình banner của danh mục :
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="add_picture" size="35" /><input type="text" name="add_textcolor" value="ffffff" size="6" maxlength="6" /> (color)
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l"><p>Mỗi danh mục có 1 hình ảnh đặc trưng riêng, và 1 hình phụ</p>
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="add_picture_ov" size="35" />(Hình phụ)
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tên danh mục :
+			<p>Đây là tên danh mục website sẽ được hiển thị thành các menu</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div><input type="text" name="add_title_<?=$lgroups[$i]['key']?>" value="<?=$_POST['add_title']?>" size="50" /> <?=$lgroups[$i]['title']?></div>
+		<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tiêu đề SEO :
+			<p>Tiêu đề SEO là tiêu đề hiển hiện trên trang tìm kiếm google (Nếu để trống hệ thống tự động lấy <b>Tên danh mục</b> ghi vào)</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div><input type="text" name="add_seotit_cat_<?=$lgroups[$i]['key']?>" value="<?=$_POST['add_seotit_cat']?>" size="50" /> <?=$lgroups[$i]['title']?></div>
+		<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Thứ tự sắp xếp :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="add_oder" value="1" size="1" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nội dung loại bài viết :
+			<p>Nội dung loại bài viết, nội dung được tải về khi loại bài viết không có bài viết hoặc có bài viết, nội dung sẽ được ưu tiên tải về trước bài viết</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<?=$lgroups[$i]['title']?><br />
+			<textarea id="add_contents_<?=$lgroups[$i]['key']?>" name="add_contents_<?=$lgroups[$i]['key']?>" rows=4 cols=50><?=$detail[$i]['contents']?></textarea>
+        <? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+
+<!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+<? if ($id['option'] == 'edit') {?>
+	<p>
+	<h5>Cập nhật mẫu tin: <?=$menu[$id['com']][$id['target']]?> - <?=$detail[0]['title']?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+		<div style=" margin:0px; width:100%; height:30px;">
+			<input type="button" name="cancel" value="Danh sách menu" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" />
+			<input type="button" name="add_new" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:add'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" value="Thêm mẫu tin" style="cursor:pointer;"  />
+			<input type="submit" name="submit" value="Save" />
+		</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nằm trong danh mục :
+			<p>Vui lòng chọn danh mục cha trong danh sách danh mục đã có</p>
+		</div>
+		<div id="rs_line_r">
+			<?  categories_select ('add_parentid',$id['groups'],0,$detail[0]['parentid'],$detail[0]['id']) ?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tên danh mục :
+			<p>Đây là tên danh mục website sẽ được hiển thị thành các menu</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div><input type="text" name="add_title_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['title']?>" size="50" /> <?=$lgroups[$i]['title']?></div>
+		<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tiêu đề SEO :
+			<p>Tiêu đề SEO là tiêu đề hiển hiện trên trang tìm kiếm google (Nếu để trống hệ thống tự động lấy <b>Tên danh mục</b> ghi vào)</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div><input type="text" name="add_seotit_cat_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['seotit_cat']?>" size="50" /> <?=$lgroups[$i]['title']?></div>
+		<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Thứ tự sắp xếp :
+			<p>Thứ tự sẽ quy định ưu tiên cho nhóm nào đứng trước nhóm nào</p>
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="add_oder" value="<?=$detail[0]['oderid']?>" size="1" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Nội dung loại bài viết :
+			<p>Nội dung loại bài viết, nội dung được tải về khi loại bài viết không có bài viết hoặc có bài viết, nội dung sẽ được ưu tiên tải về trước bài viết</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<?=$lgroups[$i]['title']?><br />
+			<textarea id="add_contents_<?=$lgroups[$i]['key']?>" name="add_contents_<?=$lgroups[$i]['key']?>" rows=4 cols=50><?=$detail[$i]['contents']?></textarea>
+    	<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hình banner và mã màu chữ tiêu đề:
+			<p>Mỗi danh mục có 1 hình ảnh đặc trưng riêng</p>
+		</div>
+		<div id="rs_line_r"><input type="text" name="add_textcolor" value="<? if($detail[0]['textcolor']=='') echo 'ffffff'; else echo $detail[0]['textcolor']; ?>" size="6" maxlength="6" /> (color)<br />
+			<input type="file" name="add_picture" size="20" /> 
+			<input type="hidden" name="old_picture" value="<?=$detail[0]['picture']?>" /> 
+			<input type="checkbox" name="xoahinh" value="xoahinh" /> Xóa hình
+		</div>
+	</div>
+	<? if ($detail[0]['picture']) echo '<br /><img src="../lib/banner/'.$detail[0]['picture'].'" height="80"><br />';?><font style=" font-size:10px;"><?=$detail[0]['picture']?></font>
+	<br />
+	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Hình phụ:
+		</div>
+		<div id="rs_line_r">
+			<input type="file" name="add_picture_ov" size="20" /> 
+			<input type="hidden" name="old_picture_ov" value="<?=$detail[0]['picture_ov']?>" /> 
+			<input type="checkbox" name="xoahinh_ov" value="xoahinh_ov" /> Xóa hình
+		</div>
+	</div>
+	<? if ($detail[0]['picture_ov']) echo '<br /><img src="../lib/banner/'.$detail[0]['picture_ov'].'" height="80"><br />';?><font style=" font-size:10px;"><?=$detail[0]['picture_ov']?></font>
+	<br />
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+<? if ($id['option'] == 'delete') {?>
+	<p>
+	<h5>Xóa các mẫu tin: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh sách các mẫu tin cần xóa :
+			<p>Bạn cần lưu ý rằng khi đã quyết định xóa một mẫu tin thì không thể phục hồi lại</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($rs_list); $i++) { ?>
+			<div><strong><?=$rs_list[$i]['title']?><? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></strong></div>
+		<? }?>	
+		</div>
+	</div>
+	<div id="rs_line">&nbsp;</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+

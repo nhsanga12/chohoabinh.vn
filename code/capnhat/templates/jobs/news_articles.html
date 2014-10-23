@@ -1,0 +1,620 @@
+<script language="javascript" type="text/javascript">
+		function addpic(c)
+        {
+            var kt,id;
+			for (i=0;i<c;i++) {
+				id	= "rs_add_pic_"+i;
+				kt  = document.getElementById(id).style.display;
+				if (kt == "none") {
+					document.getElementById(id).style.display="block";
+					break;
+				}
+			}
+			if (i > c-1) alert ('Chỉ được upload một lượt '+c+' hình');
+        }
+		
+		function addvideo(c)
+        {
+            var kt,id;
+			for (i=0;i<c;i++) {
+				id	= "rs_add_video_"+i; k=i+1;
+				valuepic = "add_file_tit_"+i;
+				kt  = document.getElementById(id).style.display;
+				if (kt == "none") {
+					document.getElementById(id).style.display="block";
+					document.getElementById(valuepic).value="Picture "+k;
+					break;
+				}
+			}
+			if (i > c-1) alert ('Chỉ được upload một lượt '+c+' file');
+        }
+</script>
+
+<? $title = categories_detail($id['category']); ?>
+<? if ($id['option'] == 'main') {?>
+	<div id="rs_line_h"><form action="" name="frm_srh" onsubmit="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';groups:'.$id['groups'].';category:'.$id['category'].';option:main;limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value;return false;">
+		<div id="rs_line_h_l">
+		<input type="text" name="search" size="20" value="" />
+		<select name="limit_on_page">
+			<option value="">Số tin hiển thị</option>
+			<option value="10" <? if ($config['limit_on_page'] == 10) echo 'selected'?>>10 tin/trang</option>
+			<option value="50" <? if ($config['limit_on_page'] == 50) echo 'selected'?>>50 tin/trang</option>
+			<option value="100" <? if ($config['limit_on_page'] == 100) echo 'selected'?>>100 tin/trang</option>
+		</select>
+		<input type="button" name="submit" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';groups:'.$id['groups'].';category:'.$id['category'].';option:main;limit_on_page:'?>'+document.frm_srh.limit_on_page.value+';search:'+document.frm_srh.search.value" value="Lọc tin" />
+		</div>
+		<div id="rs_line_h_r">
+		<input type="button" name="dupple" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:delete'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:1');" title="Sao chép những mẫu tin đã được chọn" value="Double"  />
+		<input type="button" name="move" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:delete'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:9');" title="Di chuyển những mẫu tin đã được chọn" value="Move"  />
+		<input type="button" name="add_new" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:add'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" value="Thêm"  />
+		<input type="button" name="delete" value="Xóa" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:delete'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:0');" title="Xóa những mẫu tin đã được chọn"  />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+	</form></div>
+	<div style="margin-bottom:7px;"><font color="#CC3300"><b><?=$title[0]['title'];?></b></font> - Có tất cả <strong><?=$pages['rs']?></strong> mẫu tin. Đang xem trang <?=$pages['current']?>/<?=$pages['page']?>
+	</div>	
+	<!-- Header -->
+	<form name="frm" action="" method="post">
+	<div id="rs_line">
+		<div id="rs_header" style="width:5%">T.tự</div>
+		<div id="rs_header" style="width:55%">Tiêu đề/ Tên/ Quy cách &nbsp; <a href="#" style=" font-size:10px; color:#FF6600;">Edit<a></div>
+		<div id="rs_header" style="width:15%; text-align:center;">Giá </div>
+		<div id="rs_header" style="width:10%; text-align:center">Ngày cập nhật</div>
+		<div id="rs_header" style="width:3%; text-align:center;"><input type="checkbox" name="idall" id="idall" value="" title="Click để chọn tất cả" onclick="chkall();" /></div>
+	</div>
+	<!-- End Header -->
+	<!-- Detail -->
+	<? for ($i=0; $i < count($rs_list); $i++) { ?>
+	<div id="rs_line" onmousemove="this.style.background='#e3f1f2';" onmouseout="this.style.background='#ffffff';">
+		<div id="rs_detail" style="width:5%; text-align:"><input type="text" name="s<?=$rs_list[$i]['id']?>" size="1" value="<?=$rs_list[$i]['state_p']?>" style="text-align:right; width:35px;background:none;" /> </div>
+		<div id="rs_detail" style="width:55%" onclick="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:edit;item:'.$rs_list[$i]['id']?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$rs_list[$i]['category']?>'">&nbsp; <a href="<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:edit;item:'.$rs_list[$i]['id']?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$rs_list[$i]['category']?>"><?=$rs_list[$i]['title']?>
+		<? if($rs_list[$i]['status']==1){?><font color="#FF0000"> (off)</font><? }?>
+		<? if($rs_list[$i]['status']==0){?><font color="#4477cc"><b> (mới)</b></font><? }?>
+		<? if($rs_list[$i]['hot']=='1'){?><font color="#1ca14e"><b> (HOT)</b></font><? }?>
+		<? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></a></div>
+		<div id="rs_detail" style="width:15%">
+			<div style="display:block; width:100px; text-align:right; color:#003366; cursor:text;" id="old_<?=$rs_list[$i]['id']?>" onclick="retext(<?=$rs_list[$i]['id']?>);">
+				<input type="text" name="old_gia<?=$rs_list[$i]['id']?>" id="old_gia<?=$rs_list[$i]['id']?>" size="20" value="<?=formatMoney($rs_list[$i]['gia']);?>" style="text-align:right; width:100px; border:0px; background:none;" />
+			</div>
+			<div id="new_<?=$rs_list[$i]['id']?>" style="display:none">
+				<input type="text" name="gia<?=$rs_list[$i]['id']?>" size="20" value="<?=$rs_list[$i]['gia']?>" style="text-align:right; width:100px;" />
+			</div>
+		</div>
+		<div id="rs_detail" style="width:11%"><? $th = categories_detail($rs_list[$i]['thuonghieu']); echo $th[0]['title'];?></div>
+		<div id="rs_detail" style="width:10%; text-align:center;"><?=date('d/m/Y',$rs_list[$i]['lastdate']);?></div>
+		<div id="rs_detail" style="width:3%; text-align:center;"><input type="checkbox" name="iddetail" value="<?=$rs_list[$i]['id']?>" title="đánh dấu chọn mẫu tin này" /></div>
+	</div>
+	<? }?>
+	<!-- End Detail -->
+	<input type="submit" name="save" value="Lưu thông tin" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Xem trang :
+		<select name="gotopgae" onchange="window.location='<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';groups:'.$id['groups'].';category:'.$id['category'].';option:main;limit_on_page:'.$config['limit_on_page'].';page:'?>'+this.value">
+			<? for ($i = 1; $i <= $pages['page']; $i++) { ?>
+			 <option value="<?=$i?>" <? if ($i == $pages['current']) echo 'selected';?>><?=$i?></option>
+			<? }?>
+		</select>
+		<!--<input type="button" name="on" value="On" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:100');"  />
+		<input type="button" name="off" value="Off" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:101');"  />
+		<input type="button" name="moi" value="Mới" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:102');"  />
+		<input type="button" name="hot" value="Hot" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:103');"  />
+		<input type="button" name="nothot" value="re-Hot" onclick="cfrm_del('<?='?gnc=com:'.$id['com'].';target:'.$id['target'].';option:main'?>;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$pages['current']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>;dupple:104');" />
+		<img alt="up" src="images/arrow_turn_up.png" />-->
+	</div></form>
+<? }?>
+<? if ($id['option'] == 'add') {?>
+	<p>
+	<h5>Thêm mẫu tin: <?=$menu[$id['com']][$id['target']]?> - <font color="#CC3300"><b><?=$title[0]['title'];?></b></font></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div>
+	
+	<form action="" method="post" enctype="multipart/form-data">
+	<table cellpadding="0" cellspacing="0">
+		<tr><td width="24%" valign="top">
+		
+	<div id="rs_line" style=" background:#0099CC; vertical-align:middle; color:#FFFFFF; padding:8px 0px 8px 0px; margin-top:0px;">
+		&nbsp;&nbsp;&nbsp;Tóm tắt :
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_u" style="text-align:right;">
+			<a style=" cursor:pointer; color:#999933;" onclick=" active(188);">Nội dung tóm tắt <img src="images/arrow3.gif" /></a>
+		</div>
+    </div>
+	<div id="rs_line">
+		<div id="rs_line_u" style="text-align:right;">
+			<input type="button" name="cancel" value="Back" style="float:left;" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+			<a style=" cursor:pointer; color:#999933;" onclick=" active(88);">Chi tiết sản phẩm <img src="images/arrow3.gif" /></a>
+		</div>
+    </div>
+	<div id="rs_line">
+		<div id="rs_line_u">
+			Trạng thái bài viết :
+		</div>
+		<div id="rs_line_d">
+			<input type="radio" name="add_status" size="1" value="2" checked="checked" />Bật&nbsp;
+			<input type="radio" name="add_status" size="1" value="1" />Tắt&nbsp;
+			<input type="radio" name="add_status" size="1" value="0" />Mới&nbsp;
+			<input type="radio" name="add_hot" size="1" value="1" style="display:none;" />
+			<input type="radio" name="add_hot" size="1" value="0" style="display:none;" /><!--<font style=" text-decoration:line-through;">HOT</font>  &nbsp; -->
+		</div>
+	</div>
+     <div id="rs_line">
+		<div id="rs_line_u">
+			Thứ tự bài viết :
+        	<input type="text" name="add_state_p" size="1" value="0" />
+			<input type="submit" name="submit" value="Save" style="float:right;" />
+		</div>
+	</div>
+	<div id="rs_line">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div id="rs_line_u">
+				Tiêu đề bài viết (<?=$lgroups[$i]['key']?>):
+			</div>
+			<div id="rs_line_d">			
+				<div>
+					<input type="text" name="add_title_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['title']?>" style="width:100%" /> <br />
+					 Tiêu đề SEO (<?=$lgroups[$i]['key']?>): <br /><input type="text" name="add_seotit_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['seotit']?>" style="width:100%" /> <br />
+					 <a style=" cursor:pointer; color:#999933;" onclick=" active(44<?=$i;?>);">
+						Mô tả SEO (<?=$lgroups[$i]['key']?>) <img src="images/arrow2.gif" />
+					</a>
+				</div>
+				<div style=" display: none;" id="edit_44<?=$i;?>">
+					<textarea name="add_seodes_<?=$lgroups[$i]['key']?>" style="width:100%;"></textarea> 
+				</div>
+			
+			</div>
+		<? }?>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_u">
+			Hình ảnh bài viết:
+		</div>
+		<div id="rs_line_d">
+			<input type="file" name="add_picture" size="35" />
+		</div>
+	</div>
+	</td>
+	<td width="1%" valign="top">&nbsp;</td>
+	<td width="75%" valign="top">
+	<div id="rs_line" style=" background:#0099CC; vertical-align:middle; color:#FFFFFF; padding:8px 0px 0px 0px; margin-top:0px;">
+		&nbsp;&nbsp;&nbsp;Nội dung :		
+		<input type="button" name="add_new_manual" value="Thêm hình album" onClick="addvideo(<?=$config['max_file']?>);" style="float:right; margin:0px 3px 2px 6px;" />
+		<select name="nhomfile" style="float:right; margin:0px;">
+				<option value="images"> Picture </option>
+		</select>
+	</div>
+	<div style="border:1px solid #00CCFF; width:98%; margin:2px 0px 2px 0px; padding-left:1%; padding-bottom:1%;">
+	<!-- ============== MANUAL ======================-->
+	<? for ($i=0;$i<$config['max_file'];$i++) {?>
+		<div id="rs_add_video_<?=$i?>" style="display:none; ">
+			<div id="rs_line" style="text-align:left;">			
+				<div style=" height:auto; width:90%; margin-top:1%;">
+					Tiêu đề hình: <input type="text" name="add_file_tit_<?=$i?>" id="add_file_tit_<?=$i?>" style=" width:20%;" value="" /> <input type="file" name="add_file_<?=$i?>" size="10" />&nbsp;&nbsp;&nbsp; Thumnail: <input type="file" name="add_thumnail_<?=$i?>" size="10" />
+				</div>
+			</div>
+		</div>
+	<? }?>	
+	<!-- ============== END MANUAL ======================-->
+	</div>
+	
+	<div id="edit_88" style=" display:none; border: 1px solid #CEE3ED; padding:10px 0px 10px 0px;">
+        <div id="rs_line">
+            <div id="rs_line_l">
+                Mã sản phẩm :
+            </div>
+            <div id="rs_line_r">
+            <? for ($i=0; $i < count($lgroups); $i++) { ?>
+                <div><input type="text" name="add_ma_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['ma']?>" /> (<?=$lgroups[$i]['key']?>)</div>
+            <? }?>
+            </div>
+        </div>
+        <div id="rs_line">
+            <div id="rs_line_l">
+                Giá sản phẩm :
+            </div>
+            <div id="rs_line_r">
+            <? for ($i=0; $i < count($lgroups); $i++) { ?>
+                <div>
+                	<input type="text" name="add_gia_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['gia']?>" />
+                    <select name="cbbloaitien_<?=$lgroups[$i]['key']?>">
+                    	<option value="VND" <? if($lgroups[$i]['key']=='vn' || !isset($detail[$i]['loaitien'])) echo 'selected="selected"';?>>VND</option>
+                        <option value="USD" <? if($lgroups[$i]['key']=='en') echo 'selected="selected"';?>>USD</option>
+                    </select> (<?=$lgroups[$i]['key']?>)
+               	</div>
+            <? }?>
+            </div>
+        </div>
+        <div id="rs_line">
+            <div id="rs_line_l">
+                Phần trăm khuyến mãi :
+            </div>
+            <div id="rs_line_r">
+            <? for ($i=0; $i < count($lgroups); $i++) { ?>
+                <div><input type="text" name="add_khuyenmai_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['khuyenmai']?>" /> (<?=$lgroups[$i]['key']?>)</div>
+            <? }?>
+            </div>
+        </div>
+		<div id="rs_line">
+			<div id="rs_line_l">
+				Số lượt mua :
+			</div>
+			<div id="rs_line_r">
+				<input type="text" name="add_opt" size="1" value="0" />
+			</div>
+		</div>
+    </div>
+	<div id="edit_188" style="display:none;">
+		<div id="rs_line">
+			<? for ($i=0; $i < count($lgroups); $i++) { ?>
+				<div style="width:100%; text-align:right; margin-top:3px;">Tóm tắt <?=$lgroups[$i]['title']?>&nbsp;&nbsp;&nbsp;</div>
+				<textarea id="add_quick_<?=$lgroups[$i]['key']?>" name="add_quick_<?=$lgroups[$i]['key']?>" rows=1 cols=15><?=$detail[$i]['quick']?></textarea>
+				<script type="text/javascript">
+					CKEDITOR.replace( 'add_quick_<?=$lgroups[$i]['key']?>',
+						{	toolbarStartupExpanded : false,
+							enterMode		: '2',
+							height : 200,
+							filebrowserBrowseUrl : 'ckfinder/ckfinder.html',
+							filebrowserImageBrowseUrl : 'ckfinder/ckfinder.html?Type=Images',
+							filebrowserFlashBrowseUrl : 'ckfinder/ckfinder.html?Type=Flash',
+							filebrowserUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+							filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+						});
+				</script>
+			<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div style="width:100%; text-align:right; margin-top:3px;">Nội dung <?=$lgroups[$i]['title']?>&nbsp;&nbsp;&nbsp;</div>
+			<textarea id="add_contents_<?=$lgroups[$i]['key']?>" name="add_contents_<?=$lgroups[$i]['key']?>" rows=4 cols=30><?=$detail[$i]['contents']?></textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace( 'add_contents_<?=$lgroups[$i]['key']?>',
+					{	enterMode		: '2',
+						extraPlugins : 'uicolor',
+						toolbar :
+						[
+							['RemoveFormat','-','Font','FontSize','TextColor','BGColor','-','Smiley','Undo','Redo','HorizontalRule'],
+							['Bold','Italic','Underline','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList','Outdent','Indent','-','Link','Unlink','Anchor','Image','Table','-','Blockquote','Maximize','Source']
+						],
+						filebrowserBrowseUrl : 'ckfinder/ckfinder.html',
+						filebrowserImageBrowseUrl : 'ckfinder/ckfinder.html?Type=Images',
+						filebrowserFlashBrowseUrl : 'ckfinder/ckfinder.html?Type=Flash',
+						filebrowserUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+						filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+						filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+					});
+			</script>
+        <? }?>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+		</div>
+	</div>
+	</td></tr>
+	</table>
+	</form>
+	</div>
+<? }?>
+<? if ($id['option'] == 'edit') {?>
+	<p>
+	<h5>Cập nhật mẫu tin: <?=$menu[$id['com']][$id['target']]?> - <font color="#CC3300"><b><?=$title[0]['title'];?></b></font> - <?=$detail[0]['title']?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<table cellpadding="0" cellspacing="0">
+		<tr><td width="24%" valign="top">
+				<div id="rs_line" style=" background:#0099CC; vertical-align:middle; color:#FFFFFF; padding:8px 0px 8px 0px; margin-top:0px;">
+			&nbsp;&nbsp;&nbsp;Tóm tắt :
+		</div>
+		<div id="rs_line">
+			<div id="rs_line_u" style="text-align:right;">
+				<a style=" cursor:pointer; color:#999933;" onclick=" active(188);">Nội dung tóm tắt <img src="images/arrow3.gif" /></a>
+			</div>
+		</div>
+		<div id="rs_line">
+			<div id="rs_line_u" style="text-align:right;">
+				<input type="button" name="cancel" value="Back" style="float:left;" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+				<a style=" cursor:pointer; color:#999933;" onclick=" active(88);">Chi tiết sản phẩm <img src="images/arrow3.gif" /></a>
+			</div>
+		</div>
+		<div id="rs_line">
+			<div id="rs_line_u">
+				Trạng thái bài viết :
+			</div>
+			<div id="rs_line_d">
+				<input type="radio" name="add_status" size="1" value="2" <? if($detail[0]['status'] == '2') echo 'checked="checked"'; ?> />Bật&nbsp;
+				<input type="radio" name="add_status" size="1" value="1" <? if($detail[0]['status'] == '1') echo 'checked="checked"'; ?>/>Tắt&nbsp;
+				<input type="radio" name="add_status" size="1" value="0" <? if($detail[0]['status'] == '0') echo 'checked="checked"'; ?>/>Mới&nbsp;
+				<!--<input type="radio" name="add_hot" size="1" value="1" <? if($detail[0]['hot'] == '1') echo 'checked="checked"'; ?> />HOT&nbsp;
+				<input type="radio" name="add_hot" size="1" value="0" <? if($detail[0]['hot'] == '0') echo 'checked="checked"'; ?> /><font style=" text-decoration:line-through;">HOT</font>&nbsp;-->
+			</div>
+		</div>
+		<div id="rs_line">
+			<div id="rs_line_u">
+				Thứ tự bài viết : <input type="text" name="add_state_p" size="1" value="<?=$detail[0]['state_p']?>" />
+				<input type="submit" name="submit" value="Save" style="float:right;" />
+			</div>
+		</div>
+		<div id="rs_line">
+			<? for ($i=0; $i < count($lgroups); $i++) { ?>
+				<div id="rs_line_u" style="border:none;">
+					Tiêu đề bài viết (<?=$lgroups[$i]['key']?>):
+				</div>
+				<div id="rs_line_d">
+				
+					<div><input type="text" name="add_title_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['title']?>" style="width:100%" /> <br />
+					 Tiêu đề SEO (<?=$lgroups[$i]['key']?>):<br /><input type="text" name="add_seotit_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['seotit']?>" style="width:100%" /> <br />
+					 <a style=" cursor:pointer; color:#999933;" onclick=" active(66<?=$i;?>);">
+						Mô tả SEO (<?=$lgroups[$i]['key']?>) <img src="images/arrow2.gif" />
+					</a></div>
+					<div style=" display: none;" id="edit_66<?=$i;?>"><br />
+						<textarea name="add_seodes_<?=$lgroups[$i]['key']?>" style="width:100%"><?=$detail[$i]['seodes']?></textarea> 
+					</div>
+				
+				</div>
+			<? }?>
+		</div>
+		<div id="rs_line">
+			<div id="rs_line_u">
+				Hình ảnh bài viết:
+			</div>
+			<div id="rs_line_d">
+				<input type="file" name="add_picture" size="20" /> 
+				<input type="hidden" name="old_picture" value="<?=$detail[0]['picture']?>" /> 
+				<input type="checkbox" name="xoahinh" value="xoahinh" /> Xóa hình
+				
+				<br />
+				<? if ($detail[0]['picture']) echo '<br /><img src="../lib/articles/'.$detail[0]['picture'].'" height="80"><br />';?><font style=" font-size:10px;"><?=$detail[0]['picture']?></font>
+			</div>
+		</div>
+	</td>
+	<td width="1%">&nbsp;</td>
+	<td width="75%" valign="top">
+		<div id="rs_line" style=" background:#0099CC; vertical-align:middle; color:#FFFFFF; padding:8px 0px 0px 0px; margin-top:0px;">
+			&nbsp;&nbsp;&nbsp;Nội dung:
+			<input type="button" name="add_new_manual" value="Thêm hình album" onClick="addvideo(<?=$config['max_file']?>);" style="float:right; margin:0px 3px 2px 6px;" />
+			<select name="nhomfile" style="float:right; margin:0px;">
+					<option value="images"> Picture </option>
+			</select>
+		</div>
+		<div style="border:1px solid #00CCFF; width:98%; margin:2px 0px 2px 0px; padding-left:1%; padding-bottom:1%;">
+		<!-- ============== MANUAL ======================-->
+		<? for ($i=0;$i<$config['max_file'];$i++) {?>
+			<div id="rs_add_video_<?=$i?>" style="display:none; ">
+				<div id="rs_line" style="text-align:left;">			
+					<div style=" height:auto; width:90%; margin-top:1%;">
+						Tiêu đề hình:<input type="text" name="add_file_tit_<?=$i?>" id="add_file_tit_<?=$i?>" style=" width:20%;" value="" /> <input type="file" name="add_file_<?=$i?>" size="10" />&nbsp;&nbsp;&nbsp; Thumnail: <input type="file" name="add_thumnail_<?=$i?>" size="10" />
+					</div>
+				</div>
+			</div>
+		<? }?>	
+		<!-- ============== END MANUAL ======================-->
+		</div>
+		
+		<? if(count($gr_img)>0){?>
+			<div style="width:100%; margin:5px 0px 10px 0px; float:left;" id="edit_737">
+				<!-- ============== HIỂN THỊ HÌNH  ======================-->
+				<? for ($i=0;$i<count($gr_img);$i++) { ?>
+					<div style="margin:10px; float:left;"> 
+						&nbsp;<b><input type="text" name="old_file_tit_<?=$i;?>" value="<?=$gr_img[$i]['title'];?>" style="border:1px solid #fff;" /></b><br />
+						<img src="../lib/images/<?=$gr_img[$i]['file'];?>" height="88" style="margin:2px;" alt="picture" /><br />
+						<div>
+							<? if($gr_img[$i]['thum']){?><img src="../lib/images/<?=$gr_img[$i]['thum'];?>" width="88" height="88" style="margin:5px 2px 0px 2px; float:left;" alt="picture" /><? }?>
+							<div style="float:left;">
+								<input type="file" name="new_file_<?=$i?>" size="10" style="margin:5px;" />
+								<input type="hidden" name="old_file_<?=$i;?>" value="<?=$gr_img[$i]['file']?>" /><br />&nbsp;
+								Del<input type="radio" name="dr_checkdel_<?=$i;?>" value="1" />&nbsp;&nbsp; &nbsp;&nbsp;
+								None<input type="radio" name="dr_checkdel_<?=$i;?>" value="0" checked="checked" />
+								<input type="hidden" name="file_id_<?=$i;?>" value="<?=$gr_img[$i]['id']?>" />
+								<input type="hidden" name="old_thum_<?=$i;?>" value="<?=$gr_img[$i]['thum']?>" /><br />
+								<input type="file" name="new_thum_<?=$i?>" size="10" style="margin:5px;" /><br />&nbsp;Thumnail
+							</div>
+						</div>
+					</div>
+				<? }?>
+				<!-- ============== END HIỂN THỊ HÌNH ======================-->
+			</div>
+			<div style="border:1px solid #00CCFF; width:98%; margin:2px 0px 2px 0px; padding-left:1%; padding-bottom:1%; text-align:right;">
+				<br /><a style="cursor:pointer" onclick=" active(737);">Ẩn/hiện các hình</a> (<b><? echo count($gr_img);?></b> hình) &nbsp;
+			</div>
+		<? }?>
+		<div id="edit_88" style=" display:none; padding:10px 0px 10px 0px; border: 1px solid #CEE3ED;">
+			<div id="rs_line">
+				<div id="rs_line_l">
+					 Mã sản phẩm :
+				</div>
+				<div id="rs_line_r">
+				<? for ($i=0; $i < count($lgroups); $i++) { ?>
+					<div><input type="text" name="add_ma_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['ma']?>" /> (<?=$lgroups[$i]['key']?>)</div>
+				<? }?>
+				</div>
+			</div>
+			<div id="rs_line">
+				<div id="rs_line_l">
+					 Giá sản phẩm :
+				</div>
+				<div id="rs_line_r">
+				<? for ($i=0; $i < count($lgroups); $i++) { ?>
+					<div>
+						<input type="text" name="add_gia_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['gia']?>" />
+						<select name="cbbloaitien_<?=$lgroups[$i]['key']?>">
+							<option value="VND" <? if($lgroups[$i]['key']=='vn' || !isset($detail[$i]['loaitien'])) echo 'selected="selected"';?>>VND</option>
+							<option value="USD" <? if($lgroups[$i]['key']=='en') echo 'selected="selected"';?>>USD</option>
+						</select> (<?=$lgroups[$i]['key']?>)
+					</div>
+				<? }?>
+				</div>
+			</div>
+			<div id="rs_line">
+				<div id="rs_line_l">
+					Phần trăm khuyến mãi :
+				</div>
+				<div id="rs_line_r">
+				<? for ($i=0; $i < count($lgroups); $i++) { ?>
+					<div><input type="text" name="add_khuyenmai_<?=$lgroups[$i]['key']?>" value="<?=$detail[$i]['khuyenmai']?>" /> (<?=$lgroups[$i]['key']?>)</div>
+				<? }?>
+				</div>
+			</div>
+			<div id="rs_line">
+				<div id="rs_line_l">
+					Số lượt mua (của sản phẩm):
+				</div>
+				<div id="rs_line_r">
+					<input type="text" name="add_opt" size="1" value="<?=$detail[0]['opt']?>"/>
+				</div>
+			</div>
+		</div>
+		<div id="edit_188" style=" display:none;">
+		<div id="rs_line">
+			<? for ($i=0; $i < count($lgroups); $i++) { ?>
+				<div style="width:100%; text-align:right; margin-top:3px;">Tóm tắt <?=$lgroups[$i]['title']?>&nbsp;&nbsp;&nbsp;</div>
+				<textarea id="add_quick_<?=$lgroups[$i]['key']?>" name="add_quick_<?=$lgroups[$i]['key']?>" rows=4 cols=30 style=" height:40px;"><?=$detail[$i]['quick']?></textarea>
+				<script type="text/javascript">
+					CKEDITOR.replace( 'add_quick_<?=$lgroups[$i]['key']?>',
+						{	toolbarStartupExpanded : false,
+							enterMode		: '2',
+							height : 200,
+							filebrowserBrowseUrl : 'ckfinder/ckfinder.html',
+							filebrowserImageBrowseUrl : 'ckfinder/ckfinder.html?Type=Images',
+							filebrowserFlashBrowseUrl : 'ckfinder/ckfinder.html?Type=Flash',
+							filebrowserUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+							filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+						});
+				</script>
+			<? }?>
+		</div>
+	</div>
+	<div id="rs_line">
+		<? for ($i=0; $i < count($lgroups); $i++) { ?>
+			<div style="width:100%; text-align:right; margin-top:3px;">Nội dung <?=$lgroups[$i]['title']?>&nbsp;&nbsp;&nbsp;</div>
+			<textarea id="add_contents_<?=$lgroups[$i]['key']?>" name="add_contents_<?=$lgroups[$i]['key']?>" style=" height:150px;"><?=$detail[$i]['contents']?></textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace( 'add_contents_<?=$lgroups[$i]['key']?>',
+					{	enterMode		: '2',
+						extraPlugins : 'uicolor',
+						toolbar :
+						[
+							['RemoveFormat','-','Font','FontSize','TextColor','BGColor','-','Smiley','Undo','Redo','HorizontalRule'],
+							['Bold','Italic','Underline','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList','Outdent','Indent','-','Link','Unlink','Anchor','Image','Table','-','Blockquote','Maximize','Source']
+						],
+						filebrowserBrowseUrl : 'ckfinder/ckfinder.html',
+						filebrowserImageBrowseUrl : 'ckfinder/ckfinder.html?Type=Images',
+						filebrowserFlashBrowseUrl : 'ckfinder/ckfinder.html?Type=Flash',
+						filebrowserUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+						filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+						filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+					});
+			</script>
+        <? }?>
+	</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+<? if ($id['option'] == 'delete' && $id['dupple'] == 0 ) {?>
+	<p>
+	<h5>Xóa các mẫu tin: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh sách các mẫu tin cần xóa :
+			<p>Bạn cần lưu ý rằng khi đã quyết định xóa một mẫu tin thì không thể phục hồi lại</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($rs_list); $i++) { ?>
+			<div><strong><?=$rs_list[$i]['title']?><? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></strong></div>
+		<? }?>	
+		</div>
+	</div>
+	<div id="rs_line">&nbsp;</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="button" name="cancel" value="Quay về" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+		</div>
+	</div>
+	</td></tr>
+	</table>
+	</form></div>
+<? }?>
+<!--  ==================================================================
+					Phần sao chép bài viết
+ 	==================================================================
+-->
+<? if ($id['option'] == 'delete' && $id['dupple'] == 1) {?>
+	<p>
+	<h5>Sao chép các mẫu tin: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh sách các mẫu tin cần sao chép :
+			<p>Bạn cần lưu ý rằng các mẩu tin sao chép sẽ có nội dung giống mẩu tin gốc mà bạn chọn</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($rs_list); $i++) { ?>
+			<div><strong><?=$rs_list[$i]['title']?><? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></strong> (<?=$rs_list[$i]['language']?>)</div>
+		<? }?>
+		<? if(count($rs_list)==0){?> Để tiếp tục sao chép thêm lần nữa nhấn "<b>Sao chép</b>", ngược lại nhấn "<b>Xem kết quả</b>" để ngưng và xem kết quả.<br /><br />Số lần sao chép: <b><?=$_SESSION['dup']-1;?> lần </b> <? }?>
+		</div>
+	</div>
+	<div id="rs_line">&nbsp;</div>
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<input type="submit" name="submit" value="Sao chép lần <?=$_SESSION['dup'];?>" />
+			<input type="button" name="cancel" value="Xem kết quả" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$id['category']?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+<!--  ==================================================================
+					Phần di chuyển bài viết
+ 	==================================================================
+-->
+<? if ($id['option'] == 'delete' && $id['dupple'] == 9) {?>
+	<p>
+	<h5>Di chuyển các mẫu tin: <?=$menu[$id['com']][$id['target']]?></h5>
+	<span id="red"><em><?=$msg?></em></span>
+	</p>
+	<div><form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Danh sách các mẫu tin cần di chuyển :
+			<p>Bạn cần lưu ý rằng các mẩu tin trên sẽ được chuyển đến menu mà bạn chọn bên dưới</p>
+		</div>
+		<div id="rs_line_r">
+		<? for ($i=0; $i < count($rs_list); $i++) { ?>
+			<div><strong><?=$rs_list[$i]['title']?><? if($rs_list[$i]['title'] == "") echo '#'.$rs_list[$i]['id'];?></strong>(<?=$rs_list[$i]['language']?>)</div>
+		<? }?>
+		<? if($bi!=0){?>
+			<span id="red">Đã chuyển thành công <?=$bi;?> bài viết !!</span><br /><br />
+		<? }?>
+		<br />- Vui lòng chọn <strong>Menu</strong> cần chuyển đến :<br /> 
+		<span id="red" style="font-size:11px;"><i> * Lưu ý chọn các menu không có menu con</i></span><br /><br />
+		<?  categories_select ('dest_id',$id['groups'],0,0,0,'*','','-') ?>
+		</div>
+	</div>
+	<div id="rs_line">&nbsp;</div>
+	<div id="rs_line">
+		<div id="rs_line_r"><br />
+			<input type="submit" name="submit" value="Chuyển đi" />
+			<input type="button" name="cancel" value="Xem kết quả" onclick="window.location='?gnc=com:<?=$id['com']?>;target:<?=$id['target']?>;option:main;limit_on_page:<?=$id['limit_on_page']?>;page:<?=$id['page']?>;search:<?=$id['search']?>;groups:<?=$id['groups']?>;category:<?=$j?>'" />
+		</div>
+	</div>
+	</form></div>
+<? }?>
+
+

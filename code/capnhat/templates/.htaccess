@@ -1,0 +1,6 @@
+order deny,allow
+deny from all
+
+ErrorDocument 403 /
+
+

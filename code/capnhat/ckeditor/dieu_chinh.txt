@@ -1,0 +1,4 @@
+﻿- chỉnh lại màu sắc trong file : editor.css
+- chỉnh file config.js
+- chỉnh upload :
+ -chỉnh các icon : D:\xampp\htdocs\giaonhanh\capnhat\ckeditor.jsp

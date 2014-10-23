@@ -1,0 +1,261 @@
+.fullwith{
+	margin:auto;
+	width:100%;
+}
+.toptick{
+	background:url(../images/topbg.png) repeat-x top left;
+	height:23px;
+	line-height:23px;
+}
+.contarea{
+	width:980px;
+	margin:auto;
+}
+.manager{
+	width:200px;
+	float:right;
+	font-size:11px;
+	text-align:right;
+}
+
+.logodiv{
+	height:42px;
+}
+.menumain{
+	background:url(../images/menubgmain.png) repeat-x top left;
+	height:62px;
+}
+.contents{
+	margin-top:10px;
+}
+.leftmenu{
+	width:200px;
+	display:table;
+	margin:0px;
+	background:#d7e2ef;
+	border:1px solid #c4d7ec;
+	float:left;
+}
+
+.rightcont{
+	width:100%;
+	margin:0px 0px 0px 0px;
+	background:url(../images/bg_center_com_1x27.gif) repeat-x top left #fff;
+	border:1px solid #bfccd6;
+	float:left;
+	display:table;
+}
+.clear{
+	clear: both;
+}
+
+.linkcont{
+	background:#dee8f3;
+	height:150px;
+	margin: 12px 0px 12px 0px;
+	border:1px solid #d1e2f5;
+}
+.bogoc{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.tieude{
+	width:99%;
+	height:27px;
+	line-height:25px;
+	color:#e22;
+	font-weight:bold;
+}
+.dong{
+	width:98%;
+	margin: 0 1% 0 1%;
+	height:30px;
+}
+.dongxanh{
+	width:98%;
+	margin: 2% 1% 0 1%;
+	height:30px;
+	background:#f0f6fc;
+}
+.cottrai{
+	width:30%;
+	height:30px;
+	line-height:30px;
+	float:left;
+	text-align:right;
+	font-weight:bold;
+	font-size:11px;
+}
+.cotphai{
+	width:69%;
+	height:30px;
+	float:left;
+}
+.dongline{
+	width:98%;
+	margin: 0 1% 0 1%;
+	height:40px;
+	line-height:40px;
+	border-top:1px solid #d0d3d4;
+}
+.dongh{
+	width:98%;
+	margin: 0 1% 0 1%;
+}
+.dongh .demuc{
+	background:#3c73a9;
+	color:#fff;
+	font-size:11px;
+	font-weight:bold;
+}
+.dongxd{
+	width:98%;
+	margin: 10px 1% 10px 1%;
+	height:30px;
+	line-height:30px; 
+	background:#3c73a9; 
+	font-weight:bold; 
+	color:#fff;
+}
+
+.linkbox{
+	width: 200px;
+	float: left;
+	margin-left: 40px;
+	margin-top:15px;
+	display: inline;
+	font:normal 12px Arial,Tahoma;
+}
+.linkbox p{
+	width:176px;
+	color: #3C73A9;
+	background: url(../images/icon_18x19.gif) no-repeat left top;
+	padding-left: 24px;
+	margin-left:31px;
+	line-height: 1.5em;
+	overflow: hidden;
+}
+.linkbox ul{
+	font: normal 12px Arial,Tahoma;
+	width: 192px;
+	margin-left: 0px;
+	list-style-type: none;
+}
+.linkbox ul li{
+	background: url(../images/icon_16x16.gif) no-repeat left 2px;
+	overflow: hidden;
+	width: 171px;
+	padding: 3px 0 0 21px;
+	line-height: 1.5em;
+}
+.linkbox ul .end{
+	background: url(../images/icon_16x13.gif) no-repeat left 2px;
+	overflow: hidden;
+	width: 171px;
+	padding: 3px 0 0 21px;
+	line-height: 1.5em;
+}
+.linkbox ul li a{
+	color:#366490;
+}
+
+.footer{
+	background:#3c73a9;
+	min-height:50px;
+	color:#fff;
+	line-height:22px;
+	text-align:center;
+}
+.footer a{
+	color:#fff;
+}
+.footer a:hover{
+	color:#FFCC66;
+}
+
+
+.dongh table{
+	width:100%;
+	border:1px solid #ddd;
+}
+.dongh table tr{
+}
+.dongh table tr td{
+}
+.dongh table tr td input{
+	width:80px;
+}
+
+/*=================== MENU LEFT ===============*/
+
+.leftmenu ul{
+margin: 0px 0px 7px 0px;
+padding: 0px 0px;
+list-style-type: none;
+float:left;
+}
+
+.leftmenu ul li{
+position: relative;
+display: inline;
+float: left;
+font-size:12px;
+font-weight:bold;
+}
+
+.leftmenu ul li a{
+display: block;
+background:url(http://localhost/beton6/tuyendung/images/titic.png) center left no-repeat;
+background-color:transparent;
+border:none;
+border-bottom:none;
+color: #3c73a9;
+padding: 8px 5px 8px 0px;
+text-decoration: none;
+margin-left:10px;
+}
+
+* html .leftmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+.leftmenu ul li a.selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+	color:#CC6600;
+}
+
+.leftmenu ul li a:hover{
+	color:#CC6600;
+}
+	
+.leftmenu ul li ul{
+	list-style-type: none;
+	width:200px;
+}
+
+.leftmenu ul li ul li{
+	background:none;
+	width:200px;
+	color:#3c73a9;
+	font-weight:100;
+}
+.leftmenu ul li ul li a{
+	width:200px;
+	background:none;
+	margin: 0px;
+	color:#3c73a9;
+	font-weight:100;
+	padding:5px 0px 5px 0px;
+	background:none;
+}
+.leftmenu ul li ul li a:hover{
+	color:#3c73a9;
+	font-weight:100;
+	background:url(http://localhost/beton6/tuyendung/images/arrowblue.png) center right no-repeat #edf5fe;
+}
+
+.leftmenu ul li ul li select{
+	color:#3c73a9;
+	font-weight:100;
+	background:url(http://localhost/beton6/tuyendung/images/arrowblue.png) center right no-repeat #edf5fe;
+}

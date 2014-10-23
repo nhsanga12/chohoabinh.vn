@@ -1,0 +1,55 @@
+body {
+	margin:0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+}
+p {
+	margin:5px;
+}
+form {
+	margin:0px;
+}
+a {
+	color:#366;
+	text-decoration:none;
+	outline:none;
+}
+a:hover {
+	color:#333333;
+	text-decoration:underline;
+	outline:none;	
+}
+.xam{
+	color:#4b6d67;
+	text-decoration:none;
+	outline:none;
+}
+.xam a{
+	color:#bca088;
+	text-decoration:none;
+	outline:none;
+}
+.xam a:hover {
+	color:#4b6d67;
+	text-decoration:underline;
+	outline:none;	
+}
+.jquery_ms{
+	padding:20px;
+	background:#FFFFCC;
+	border:1px solid #FFCC66;
+	position:absolute;
+	z-index:200;
+	top:45%;
+	left:35%;
+	width:20%;
+	display:none;
+	text-align:center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#testthu #add_parentid{
+	width:150px;
+}

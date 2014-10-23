@@ -1,0 +1,31 @@
+<form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<span id="red"><em><?=$msg?></em></span>
+	</div><br/>
+	<div id="rs_line" style=" line-height:20px;">
+		Đây là tools <b>đổi tên</b> tất cả các hình trong web, vui lòng chèn ký tự thay thế cho số ngày tháng trong tên hình vào bên dưới : ( <i>nếu trùng tên hệ thống sẽ tự ghi đè </i>)
+	</div><br/>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Ký tự mới :
+		</div>
+		<div id="rs_line_r">
+			<input type="text" name="img_name" size="35" value="canon" /> 
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Tổng số hình sẽ được thay : 
+		</div>
+		<div id="rs_line_r">
+			<b><?=count($list_pic);?></b> hình <!--<img src="images/filecopy.gif" align="truyen file" />-->
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<br />
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" /> <span id="red">( Chú ý xem kỹ nội dung trên )</span>
+		</div>
+	</div>
+</form>

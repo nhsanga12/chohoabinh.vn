@@ -1,0 +1,42 @@
+<form action="" enctype="multipart/form-data" method="post">
+<div id="rs_line">
+	<br /><br /><span id="red">Chức năng lọc Email từ file note và ghi vào Database</span><br /><br />
+	<i>Lưu ý : Các email trong note cách nhau bằng Enter</i><br /><br />
+	<i>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Các email sẽ tự động được tách và phân loại</i><br /><br /><br /><span id="red"><?=$msg;?></span>
+</div><br/>
+<div id="rs_line" style=" line-height:20px;"><br />
+	
+</div><br/>
+<div id="rs_line">
+	<div id="rs_line_l">
+		File notepad :
+	</div>
+	<div id="rs_line_r">
+		<input type="file" name="filenote" size="35" />
+	</div>
+</div>	
+<div id="rs_line">
+	<div id="rs_line_l">
+		<br />Nhóm email :
+	</div>
+	<div id="rs_line_r"><br />
+		<select name="group">
+			<option value="1">Vui lòng chọn nhóm</option>
+			<? for($i=0;$i<count($nhom);$i++){?>
+				<option value="<?=$nhom[$i]['id'];?>"><?=$nhom[$i]['groupname'];?></option>
+			<? }?>
+		</select> &nbsp;&nbsp;Hoặc tạo mới :
+		<input type="text" name="new_group" value="Tên nhóm mới" onclick=" if(this.value=='Tên nhóm mới') return value='';" />
+	</div>
+</div>
+<div id="rs_line">
+	<div id="rs_line_l">
+		&nbsp;<br /><br />
+	</div>
+	<div id="rs_line_r"><br /><br />
+		<input type="submit" name="submit" value="Chấp nhận" />
+		<input type="button" name="back" value="Quay lại" />
+	</div>
+</div>
+</form>
+<br /><br /><br /><br />

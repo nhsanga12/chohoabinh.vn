@@ -1,0 +1,88 @@
+#maincontent{
+	/* The main container div */
+	height:370px; width:540px; margin:0px; float:left;
+	z-index:10;
+}
+
+#holder{
+	/* The unordered list that is to be split into pages */
+
+	width:500px;
+	overflow:hidden;
+	position:relative;
+	padding:0px 1px 1px 1px;
+	z-index:10;
+	height:370px;
+}
+
+.swControls{
+	position:absolute;
+	top:90%;
+	padding-right:0px;
+	z-index:10;
+}
+
+a.swShowPage{
+
+	/* The links that initiate the page slide */
+
+	background-color:#444444;
+	float:left;
+	height:15px;
+	margin:4px 3px;
+	text-indent:-9999px;
+	width:15px;
+	z-index:10px;
+	/*border:1px solid #ccc;*/
+	
+	/* CSS3 rounded corners */
+	
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+}
+
+a.swShowPage:hover,
+a.swShowPage.active{
+	background-color:#2993dd;
+	
+	/*	CSS3 inner shadow */
+	
+	-moz-box-shadow:0 0 7px #1e435d inset;
+	/*-webkit-box-shadow:0 0 7px #1e435d inset;*/
+	box-shadow:0 0 7px #1e435d inset;
+}
+
+#holder li{
+	/*background-color:#F4F4F4;*/
+	list-style:none outside none;
+	line-height:22px;
+	width:450px;
+	height:320px;
+	margin:0px 50px 0px 0px;
+	padding:0px 20px 10px 10px;
+	float:left;
+	text-align:justify;
+
+	/* Regular CSS3 box shadows (not inset): */
+
+	/*-moz-box-shadow:0 0 6px #111111;
+	-webkit-box-shadow:0 0 6px #111111;
+	box-shadow:0 0 6px #111111;*/
+}
+
+#holder,
+#holder li{
+	/* Applying rouded corners to both the holder and the holder lis */
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+
+.clear{
+	/* This class clears the floated elements */
+	clear:both;
+}
+
+
+/* The styles below are only necessary for the styling of the demo page */

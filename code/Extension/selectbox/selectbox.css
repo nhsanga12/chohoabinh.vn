@@ -1,0 +1,78 @@
+.search_div{
+	width:190px;
+	float:left;
+	height:30px;
+	margin-left:10px;
+}
+
+/* Drop down styles*/
+div.selectbox-wrapper {
+  position:absolute;
+  z-index:300;
+  background-color:#e7fafe;
+  border:1px solid #0aaaee;
+  border-top:none;
+  border-right:11px double #0aaaee;
+  margin:-2px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+  text-align:left;
+  max-height:200px;
+  overflow:auto;
+}
+
+/*Drop down list styles*/
+div.selectbox-wrapper ul {
+  list-style-type:none;
+  width:100%;
+  margin:0px;
+  padding:0px;
+}
+/* Selected item in dropdown list*/
+div.selectbox-wrapper ul li.selected {
+  background-color: #fff;
+}
+
+/* Hover state for dropdown list */
+div.selectbox-wrapper ul li.current {
+  background-color: #f5dead;
+}
+
+/* Drop down list items style*/
+div.selectbox-wrapper ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:5px 5px 5px 10px;
+  cursor:pointer;
+}
+
+/* Look and feel of select box */
+.selectbox{
+	width:170px;
+	height:28px;
+	padding:0px 0px 0px 10px;
+	margin:0px 0px 0px 0px;
+  	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+  	font-size:1em;/* Resize Font*/
+  	text-align:left;
+  	background: url('http://xalomuaban.com/themes/default/images/xochon_bg.jpg') right no-repeat #e7fafe;
+ 	cursor: pointer;
+  	border:1px solid #0aaaee;
+  	color:#333;
+}
+.selectbox:hover{
+	background-color:#f5dead;
+}
+
+.searchbutton{
+	background:url(http://xalomuaban.com/themes/default/images/searchbutton.jpg) top repeat-x;
+	width:72px;
+	height:32px;
+	line-height:32px;
+	color:#fff;
+	text-align:center;
+	margin:0px 0px 0px 10px;
+	padding:0px 0px;
+	border:none;
+	cursor:pointer;
+}

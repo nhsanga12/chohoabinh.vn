@@ -1,0 +1,31 @@
+<form action="" method="post" enctype="multipart/form-data">
+	<div id="rs_line">
+		<span id="red"><em><?=$msg?></em></span>
+	</div><br/>
+	<div id="rs_line" style=" line-height:20px;">
+		Chức năng dời data từ database CMS cũ sang database CMS mới. Trường hợp này là chuyển từ <b>lbm_</b> sang <b>gnc_</b>
+	</div><br/>
+	<div id="rs_line">
+		<div id="rs_line_l">
+			<strong>Chuyển đi</strong> từ mục (<b>lbm_</b>)  :<br /><br /><br />
+		</div>
+		<div id="rs_line_r">
+			<? categories_select2 ('lbm','lbm_dest_id',1,0,0,0,'*','','-') ?>
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_l">
+			Đến mục (<b>gnc_</b>) :<br /><br /><br />
+		</div>
+		<div id="rs_line_r">
+			<? categories_select2 ('','gnc_dest_id',1,0,0,0,'*','','-') ?>
+		</div>
+	</div>	
+	<div id="rs_line">
+		<div id="rs_line_r">
+			<br />
+			<input type="submit" name="submit" value="Chấp nhận" />
+			<input type="reset" name="reset" value="Hủy bỏ" /> <span id="red">( Chú ý xem kỹ nội dung trên )</span>
+		</div>
+	</div>
+</form>
